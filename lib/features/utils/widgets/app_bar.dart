@@ -8,22 +8,14 @@ class AppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: ColorsUtil.white,
-      centerTitle: true,
-      title: Padding(
-          padding: const EdgeInsets.only(top: 12),
-          child: Row(
-            children: [
-              const SizedBox(width: 8),
-              Text(title,
-                  style: const TextStyle(
-                      color: ColorsUtil.black,
-                      fontFamily: 'Frederic',
-                      fontSize: 20)),
-            ],
-          )),
-    );
+    return Column(
+      children:[
+        const SizedBox(height: 8,),
+        Text(title,
+            style:  const TextStyle(
+                color: ColorsUtil.white,
+                fontFamily: 'Frederic',
+                fontSize: 20)),
+    ]);
   }
 }
