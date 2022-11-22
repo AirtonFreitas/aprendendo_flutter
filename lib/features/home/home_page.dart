@@ -63,12 +63,11 @@ class _HomePageState extends State<HomePage> {
 
   Widget _widgetFlutter() {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
           const Text(
             'O que é o flutter?',
-            textAlign: TextAlign.start,
             style: TextStyle(fontFamily: 'Frederic', fontSize: 18),
           ),
           const Text(
@@ -170,7 +169,6 @@ class _HomePageState extends State<HomePage> {
       children: [
         const Text(
           'O que vou aprender nesse app?',
-          textAlign: TextAlign.start,
           style: TextStyle(fontFamily: 'Frederic', fontSize: 18),
         ),
         const SizedBox(

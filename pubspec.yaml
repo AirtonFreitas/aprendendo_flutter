@@ -89,15 +89,18 @@ flutter:
     - family: CaviarDreams
       fonts:
         - asset: assets\fonts\CaviarDreams.ttf
-        - asset: assets\fonts\CaviarDreams_Bold.ttf
-    - family: CaviarDreams
-      fonts:
-        - asset: assets\fonts\CaviarDreams.ttf
-        - asset: assets\fonts\CaviarDreams_Bold.ttf
     - family: CaviarDreamsBold
       fonts:
         - asset: assets\fonts\CaviarDreams_Bold.ttf
           weight: 700
+    - family: Hack
+      fonts:
+        - asset: assets\fonts\Hack.ttf
+    - family: HackItalic
+      fonts:
+        - asset: assets\fonts\Hack_Italic.ttf
+
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
