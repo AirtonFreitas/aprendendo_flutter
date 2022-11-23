@@ -1,6 +1,6 @@
 import 'package:aprendendo_flutter/configs/utils/colors_utils.dart';
 import 'package:aprendendo_flutter/features/utils/widgets/app_bar.dart';
-import 'package:aprendendo_flutter/src/utils/drawer_app.dart';
+import 'package:aprendendo_flutter/features/utils/widgets/drawer_app.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/widgets/button_next.dart';

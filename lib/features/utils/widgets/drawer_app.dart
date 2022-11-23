@@ -38,6 +38,7 @@ class DrawerApp extends StatelessWidget {
             ),
             onTap: () {
               Navigator.pop(context);
+              Navigator.popAndPushNamed(context, 'home');
             },
           ),
           const Divider(),

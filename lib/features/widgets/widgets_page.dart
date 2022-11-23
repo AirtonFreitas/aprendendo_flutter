@@ -1,10 +1,7 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import '../../configs/utils/colors_utils.dart';
-import '../../src/utils/drawer_app.dart';
+import '../utils/widgets/drawer_app.dart';
 import '../utils/widgets/app_bar.dart';
 
 class WidgetsPage extends StatefulWidget {
@@ -39,9 +36,7 @@ class _WidgetsPageState extends State<WidgetsPage> {
       drawer: const DrawerApp(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
-        child: Center(
-          child: _buildBody(),
-        ),
+        child: _buildBody(),
       ),
     );
   }
@@ -85,25 +80,25 @@ class _WidgetsPageState extends State<WidgetsPage> {
       const SizedBox(height: 16),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          const Text('Layout',
+        children: const [
+          Text('Layout',
               style: TextStyle(fontFamily: 'Frederic', fontSize: 24)),
-          const Text('Interface',
+          Text('Interface',
               style: TextStyle(fontFamily: 'Frederic', fontSize: 24))
         ],
       ),
       const SizedBox(height: 8),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          const Flexible(
+        children: const [
+          Flexible(
             child: Text(
                 'Widgets de Layout são os widgets que organizam a tela. E recebem os widgets de interface.',
                 style: TextStyle(
                   fontFamily: 'CaviarDreams',
                 )),
           ),
-          const Flexible(
+          Flexible(
             child: Text(
                 'Widgets de interface são os widgets que irão ser exibidos na interface do usuário.',
                 style: TextStyle(
@@ -120,10 +115,10 @@ class _WidgetsPageState extends State<WidgetsPage> {
   Widget _buildExemplo() {
     return Column(children: [
       Row(
-        children: [
-          const Icon(Icons.widgets_outlined),
-          const SizedBox(width: 8),
-          const Text(
+        children: const [
+          Icon(Icons.widgets_outlined),
+          SizedBox(width: 8),
+          Text(
             'Widgets de Layout',
             style: TextStyle(fontFamily: 'Frederic', fontSize: 20),
             textAlign: TextAlign.start,
@@ -140,12 +135,12 @@ class _WidgetsPageState extends State<WidgetsPage> {
       const Divider(),
       const SizedBox(height: 16),
       Row(
-        children: [
-          const Icon(Icons.widgets_outlined),
-          const SizedBox(
+        children: const [
+          Icon(Icons.widgets_outlined),
+          SizedBox(
             width: 8,
           ),
-          const Text(
+          Text(
             'Widgets de Interface',
             style: TextStyle(fontFamily: 'Frederic', fontSize: 20),
             textAlign: TextAlign.start,
@@ -161,7 +156,7 @@ class _WidgetsPageState extends State<WidgetsPage> {
       const SizedBox(height: 32),
       _buildButton(),
       const SizedBox(height: 32),
-      Divider(),
+      const Divider(),
       const Text(
         'Agora já sabemos como funcionam os widgets e alguns dos exemplos mais comuns.'
             '\nExistem vários outros widgets que podem ser utilizados e cada um possui suas peculiaridades. A recomendação é sempre buscar aprender mais e em fontes confiáveis.',
@@ -383,10 +378,10 @@ class _WidgetsPageState extends State<WidgetsPage> {
               padding: const EdgeInsets.all(8),
               color: Colors.green,
               child: Column(
-                children: [
-                  const Text('primeiro'),
-                  const Text('segundo'),
-                  const Text('terceiro'),
+                children: const [
+                  Text('primeiro'),
+                  Text('segundo'),
+                  Text('terceiro'),
                 ],
               ),
             ),
@@ -413,10 +408,10 @@ class _WidgetsPageState extends State<WidgetsPage> {
               padding: const EdgeInsets.all(8),
               color: Colors.green,
               child: Row(
-                children: [
-                  const Text('primeiro '),
-                  const Text('segundo '),
-                  const Text('terceiro '),
+                children: const [
+                  Text('primeiro '),
+                  Text('segundo '),
+                  Text('terceiro '),
                 ],
               ),
             ),
