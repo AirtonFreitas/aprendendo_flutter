@@ -3,8 +3,6 @@ import 'package:aprendendo_flutter/features/utils/widgets/app_bar.dart';
 import 'package:aprendendo_flutter/features/utils/widgets/drawer_app.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/widgets/button_next.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -13,8 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ScrollController _scrollController = ScrollController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +34,6 @@ class _HomePageState extends State<HomePage> {
           )),
       drawer: const DrawerApp(),
       body: SingleChildScrollView(
-        controller: _scrollController,
         child: _buildBody(),
       ),
     );
@@ -53,10 +48,6 @@ class _HomePageState extends State<HomePage> {
           height: 8,
         ),
         _widgetConteudo(),
-        const SizedBox(
-          height: 8,
-        ),
-        const ButtonNext()
       ],
     );
   }

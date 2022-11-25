@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../configs/utils/colors_utils.dart';
-import '../utils/widgets/drawer_app.dart';
+import '../home/home_page_store.dart';
 import '../utils/widgets/app_bar.dart';
+import '../utils/widgets/button_ler_mais.dart';
+import '../utils/widgets/drawer_app.dart';
+
+final _homeStore = HomePageStore();
 
 class WidgetsPage extends StatefulWidget {
   const WidgetsPage({Key? key}) : super(key: key);
@@ -36,7 +41,9 @@ class _WidgetsPageState extends State<WidgetsPage> {
       drawer: const DrawerApp(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
-        child: _buildBody(),
+        child: Observer(builder: (BuildContext context) {
+          return _buildBody();
+        }),
       ),
     );
   }
@@ -45,7 +52,25 @@ class _WidgetsPageState extends State<WidgetsPage> {
     return Column(
       children: [
         _buildIntroducao(),
-        _buildExemplo(),
+        Row(
+          children: const [
+            Icon(Icons.widgets_outlined),
+            SizedBox(width: 8),
+            Text(
+              'Widgets de Layout',
+              style: TextStyle(fontFamily: 'Frederic', fontSize: 20),
+              textAlign: TextAlign.start,
+            ),
+          ],
+        ),
+        const SizedBox(height: 16),
+        _homeStore.clickAd == false
+            ? GestureDetector(
+                child: const WidgetContinuarLendo(),
+                onTap: () => _homeStore.setClickAd())
+            : const SizedBox.shrink(),
+        const SizedBox(height: 16),
+        _homeStore.clickAd ? _buildExemplo() : const SizedBox.shrink(),
       ],
     );
   }
@@ -60,7 +85,6 @@ class _WidgetsPageState extends State<WidgetsPage> {
         children: [
           const Flexible(
             child: Text(
-              softWrap: true,
               'Os componentes de telas do flutter são feitos com base em um conjunto de Widgets. \nUm widget é um componente visual na interface do dispositivo. ',
               style: TextStyle(
                 color: ColorsUtil.black,
@@ -114,18 +138,6 @@ class _WidgetsPageState extends State<WidgetsPage> {
 
   Widget _buildExemplo() {
     return Column(children: [
-      Row(
-        children: const [
-          Icon(Icons.widgets_outlined),
-          SizedBox(width: 8),
-          Text(
-            'Widgets de Layout',
-            style: TextStyle(fontFamily: 'Frederic', fontSize: 20),
-            textAlign: TextAlign.start,
-          ),
-        ],
-      ),
-      const SizedBox(height: 16),
       _buildScaffold(),
       const SizedBox(height: 32),
       _buildContainer(),
@@ -159,7 +171,7 @@ class _WidgetsPageState extends State<WidgetsPage> {
       const Divider(),
       const Text(
         'Agora já sabemos como funcionam os widgets e alguns dos exemplos mais comuns.'
-            '\nExistem vários outros widgets que podem ser utilizados e cada um possui suas peculiaridades. A recomendação é sempre buscar aprender mais e em fontes confiáveis.',
+        '\nExistem vários outros widgets que podem ser utilizados e cada um possui suas peculiaridades. A recomendação é sempre buscar aprender mais e em fontes confiáveis.',
         style: TextStyle(fontFamily: 'CaviarDreams'),
         textAlign: TextAlign.start,
       ),

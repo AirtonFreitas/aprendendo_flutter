@@ -15,14 +15,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: 'Heavitas',
           primaryColor: ColorsUtil.black,
-          accentColor: ColorsUtil.black,
-          primarySwatch: Colors.green,
           buttonTheme: const ButtonThemeData(
             buttonColor: ColorsUtil.black,
             textTheme: ButtonTextTheme.accent,
           ),
           textTheme: ThemeData.light().textTheme.copyWith(
-              headline6: const TextStyle(fontFamily: 'Heavitas'))),
+              headline6: const TextStyle(fontFamily: 'Heavitas')), colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green).copyWith(secondary: ColorsUtil.black)),
       initialRoute: 'splash',
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,

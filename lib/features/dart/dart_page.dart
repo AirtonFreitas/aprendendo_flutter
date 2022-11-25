@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../configs/utils/colors_utils.dart';
+import '../home/home_page_store.dart';
 import '../utils/widgets/app_bar.dart';
+import '../utils/widgets/button_ler_mais.dart';
 import '../utils/widgets/drawer_app.dart';
+
+final _homeStore = HomePageStore();
 
 class DartPage extends StatefulWidget {
   const DartPage({Key? key}) : super(key: key);
@@ -36,7 +41,9 @@ class _DartPageState extends State<DartPage> {
         drawer: const DrawerApp(),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
-          child: _buildBody(),
+          child: Observer(builder: (BuildContext context) {
+            return _buildBody();
+          }),
         ));
   }
 
@@ -57,16 +64,35 @@ class _DartPageState extends State<DartPage> {
               textAlign: TextAlign.start,
             ),
           ],
-        ),
-        _buildVariaveis(),
-        const SizedBox(height: 32),
-        _buildConstantes(),
-        const SizedBox(height: 32),
-        _buildIfElse(),
-        const SizedBox(height: 32),
-        _buildFor(),
-        const SizedBox(height: 32),
-        _buildSwitchCase()
+        ),                  const SizedBox(height: 16),
+        _homeStore.clickAd == false
+            ? GestureDetector(
+                child: const WidgetContinuarLendo(),
+                onTap: () => _homeStore.setClickAd())
+            : const SizedBox.shrink(),
+        _homeStore.clickAd
+            ? Column(
+                children: [
+                  _buildVariaveis(),
+                  const SizedBox(height: 16),
+                  const Divider(),
+                  const SizedBox(height: 16),
+                  _buildConstantes(),
+                  const SizedBox(height: 16),
+                  const Divider(),
+                  const SizedBox(height: 16),
+                  _buildIfElse(),
+                  const SizedBox(height: 16),
+                  const Divider(),
+                  const SizedBox(height: 16),
+                  _buildFor(),
+                  const SizedBox(height: 16),
+                  const Divider(),
+                  const SizedBox(height: 16),
+                  _buildSwitchCase()
+                ],
+              )
+            : const SizedBox.shrink(),
       ],
     );
   }
@@ -116,12 +142,25 @@ class _DartPageState extends State<DartPage> {
             fontFamily: 'CaviarDreams',
           ),
         ),
-        const Text(
-          'main() {'
-          '\n print(\'Hello World!\');'
-          '\n}',
-          style: TextStyle(
-            fontFamily: 'Hack',
+        Container(
+          padding: const EdgeInsets.all(16),
+          color: ColorsUtil.grayDark,
+          child: RichText(
+            text: const TextSpan(
+                text: 'main',
+                style: TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+                children: <TextSpan>[
+                  TextSpan(text: '() {', style: TextStyle(color: Colors.white)),
+                  TextSpan(
+                      text: '\n print',
+                      style: TextStyle(color: Colors.cyanAccent)),
+                  TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                  TextSpan(
+                      text: '\'Hello World!\'',
+                      style: TextStyle(color: Colors.green)),
+                  TextSpan(text: ')', style: TextStyle(color: Colors.white)),
+                  TextSpan(text: '\n}', style: TextStyle(color: Colors.white)),
+                ]),
           ),
         ),
       ],
@@ -154,18 +193,28 @@ class _DartPageState extends State<DartPage> {
         ),
         const SizedBox(height: 16),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Text(
-              'var name;',
-              style: TextStyle(
-                fontFamily: 'Hack',
+            Container(
+              padding: const EdgeInsets.all(16),
+              color: ColorsUtil.grayDark,
+              child: RichText(
+                text: const TextSpan(
+                    text: 'var ',
+                    style: TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'name',
+                          style: TextStyle(color: Colors.indigoAccent)),
+                      TextSpan(
+                          text: ';', style: TextStyle(color: Colors.white)),
+                    ]),
               ),
             ),
             const SizedBox(width: 16),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              color: ColorsUtil.grayDark,
+              color: ColorsUtil.grayDarkB,
               child: RichText(
                 text: const TextSpan(
                     text: 'Type: ',
@@ -182,19 +231,29 @@ class _DartPageState extends State<DartPage> {
         ),
         const SizedBox(height: 4),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Text(
-              'var test;',
-              style: TextStyle(
-                fontFamily: 'Hack',
+            Container(
+              padding: const EdgeInsets.all(16),
+              color: ColorsUtil.grayDark,
+              child: RichText(
+                text: const TextSpan(
+                    text: 'var ',
+                    style: TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'test',
+                          style: TextStyle(color: Colors.indigoAccent)),
+                      TextSpan(
+                          text: ';', style: TextStyle(color: Colors.white)),
+                    ]),
               ),
             ),
             const SizedBox(width: 16),
             Container(
               // ignore: prefer_const_constructors
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              color: ColorsUtil.grayDark,
+              color: ColorsUtil.grayDarkB,
               child: RichText(
                 text: const TextSpan(
                     text: 'Type: ',
@@ -211,18 +270,33 @@ class _DartPageState extends State<DartPage> {
         ),
         const SizedBox(height: 4),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Text(
-              'var name = \'Airton\';',
-              style: TextStyle(
-                fontFamily: 'Hack',
+            Container(
+              padding: const EdgeInsets.all(16),
+              color: ColorsUtil.grayDark,
+              child: RichText(
+                text: const TextSpan(
+                    text: 'var ',
+                    style: TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'name',
+                          style: TextStyle(color: Colors.indigoAccent)),
+                      TextSpan(
+                          text: ' = ', style: TextStyle(color: Colors.white)),
+                      TextSpan(
+                          text: '\'Airton\'',
+                          style: TextStyle(color: Colors.green)),
+                      TextSpan(
+                          text: ';', style: TextStyle(color: Colors.white)),
+                    ]),
               ),
             ),
             const SizedBox(width: 16),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              color: ColorsUtil.grayDark,
+              color: ColorsUtil.grayDarkB,
               child: RichText(
                 text: const TextSpan(
                     text: 'Type: ',
@@ -239,18 +313,32 @@ class _DartPageState extends State<DartPage> {
         ),
         const SizedBox(height: 4),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Text(
-              'var test = 1;',
-              style: TextStyle(
-                fontFamily: 'Hack',
+            Container(
+              padding: const EdgeInsets.all(16),
+              color: ColorsUtil.grayDark,
+              child: RichText(
+                text: const TextSpan(
+                    text: 'var ',
+                    style: TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'test',
+                          style: TextStyle(color: Colors.indigoAccent)),
+                      TextSpan(
+                          text: ' = ', style: TextStyle(color: Colors.white)),
+                      TextSpan(
+                          text: '1', style: TextStyle(color: Colors.lightBlue)),
+                      TextSpan(
+                          text: ';', style: TextStyle(color: Colors.white)),
+                    ]),
               ),
             ),
             const SizedBox(width: 16),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              color: ColorsUtil.grayDark,
+              color: ColorsUtil.grayDarkB,
               child: RichText(
                 text: const TextSpan(
                     text: 'Type: ',
@@ -267,18 +355,33 @@ class _DartPageState extends State<DartPage> {
         ),
         const SizedBox(height: 4),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Text(
-              'var test = 1.0;',
-              style: TextStyle(
-                fontFamily: 'Hack',
+            Container(
+              padding: const EdgeInsets.all(16),
+              color: ColorsUtil.grayDark,
+              child: RichText(
+                text: const TextSpan(
+                    text: 'var ',
+                    style: TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'test',
+                          style: TextStyle(color: Colors.indigoAccent)),
+                      TextSpan(
+                          text: ' = ', style: TextStyle(color: Colors.white)),
+                      TextSpan(
+                          text: '1.0',
+                          style: TextStyle(color: Colors.lightBlue)),
+                      TextSpan(
+                          text: ';', style: TextStyle(color: Colors.white)),
+                    ]),
               ),
             ),
             const SizedBox(width: 16),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              color: ColorsUtil.grayDark,
+              color: ColorsUtil.grayDarkB,
               child: RichText(
                 text: const TextSpan(
                     text: 'Type: ',
@@ -300,6 +403,80 @@ class _DartPageState extends State<DartPage> {
           'E após isso não temos como alterar o tipo da variável.',
           style: TextStyle(fontFamily: 'CaviarDreams'),
         ),
+        const Text(
+          'E você pode também criar a variável declarando o formato diretamente:',
+          style: TextStyle(fontFamily: 'CaviarDreams'),
+        ),
+        const SizedBox(height: 16),
+        Container(
+            padding: const EdgeInsets.all(16),
+            color: ColorsUtil.grayDark,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RichText(
+                  text: const TextSpan(
+                      text: 'String ',
+                      style:
+                          TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: 'name',
+                            style: TextStyle(color: Colors.indigoAccent)),
+                        TextSpan(
+                            text: ' = ', style: TextStyle(color: Colors.white)),
+                        TextSpan(
+                            text: '\'Airton\'',
+                            style: TextStyle(color: Colors.green)),
+                        TextSpan(
+                            text: ';', style: TextStyle(color: Colors.white)),
+                      ]),
+                ),
+                const SizedBox(height: 8),
+                RichText(
+                  text: const TextSpan(
+                      text: 'int ',
+                      style:
+                          TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: 'age',
+                            style: TextStyle(color: Colors.indigoAccent)),
+                        TextSpan(
+                            text: ' = ', style: TextStyle(color: Colors.white)),
+                        TextSpan(
+                            text: '23',
+                            style: TextStyle(color: Colors.lightBlue)),
+                        TextSpan(
+                            text: ';', style: TextStyle(color: Colors.white)),
+                      ]),
+                ),
+                const SizedBox(height: 8),
+                RichText(
+                  text: const TextSpan(
+                      text: 'double ',
+                      style:
+                          TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: 'height',
+                            style: TextStyle(color: Colors.indigoAccent)),
+                        TextSpan(
+                            text: ' = ', style: TextStyle(color: Colors.white)),
+                        TextSpan(
+                            text: '1.90',
+                            style: TextStyle(color: Colors.lightBlue)),
+                        TextSpan(
+                            text: ';', style: TextStyle(color: Colors.white)),
+                      ]),
+                ),
+              ],
+            )),
+        const SizedBox(height: 16),
+        const Text(
+          'Lembrando que não é possível alterar o formato da variável.',
+          style: TextStyle(fontFamily: 'CaviarDreams'),
+        )
       ],
     );
   }
@@ -328,16 +505,25 @@ class _DartPageState extends State<DartPage> {
           style: TextStyle(fontFamily: 'CaviarDreams'),
         ),
         const SizedBox(height: 8),
-        Row(
-          children: const [
-            Text(
-              'final String name = \'https://cws.correios/\';',
-              style: TextStyle(
-                fontFamily: 'Hack',
-              ),
-            ),
-          ],
-        )
+        Container(
+          padding: const EdgeInsets.all(16),
+          color: ColorsUtil.grayDark,
+          child: RichText(
+            text: const TextSpan(
+                text: 'final String ',
+                style: TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+                children: <TextSpan>[
+                  TextSpan(
+                      text: 'endpoint',
+                      style: TextStyle(color: Colors.indigoAccent)),
+                  TextSpan(text: ' = ', style: TextStyle(color: Colors.white)),
+                  TextSpan(
+                      text: '\'https://cws.correios/\'',
+                      style: TextStyle(color: Colors.green)),
+                  TextSpan(text: ';', style: TextStyle(color: Colors.white)),
+                ]),
+          ),
+        ),
       ],
     );
   }
@@ -367,15 +553,33 @@ class _DartPageState extends State<DartPage> {
         'Entre os parênteses temos a condição do IF, caso atenda as condições o código dentro das chaves será executado. Caso não atenda as condições, será executado o código dentro das chaves do ELSE.',
         style: TextStyle(fontFamily: 'CaviarDreams'),
       ),
-      SizedBox(height: 16),
-      const Text(
-        'if(saldo >= valorSaque ){'
-        '\n realiza operacao de saque'
-        '\n}else{'
-        '\n não realiza saque'
-        '\n}',
-        style: TextStyle(fontFamily: 'Hack'),
-      )
+      const SizedBox(height: 16),
+      Container(
+        padding: const EdgeInsets.all(16),
+        color: ColorsUtil.grayDark,
+        child: RichText(
+          text: const TextSpan(
+              text: 'if',
+              style: TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+              children: <TextSpan>[
+                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: ' saldo >= valorSaque ',
+                    style: TextStyle(color: Colors.indigoAccent)),
+                TextSpan(text: '){', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\n realiza operacao de saque',
+                    style: TextStyle(color: Colors.green)),
+                TextSpan(text: '\n}', style: TextStyle(color: Colors.white)),
+                TextSpan(text: 'else'),
+                TextSpan(text: '{', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\n não realiza saque',
+                    style: TextStyle(color: Colors.green)),
+                TextSpan(text: '\n}', style: TextStyle(color: Colors.white))
+              ]),
+        ),
+      ),
     ]);
   }
 
@@ -397,20 +601,72 @@ class _DartPageState extends State<DartPage> {
         ],
       ),
       const Text(
-        'Para o exemplo do laço FOR, faremos uma contagem dos números até alcançar o número 10.',
+        'Para o exemplo do laço de repetição FOR, faremos uma contagem dos números até alcançar o número 10.',
         style: TextStyle(fontFamily: 'CaviarDreams'),
       ),
       const Text(
-        '',
+        'Conforme sabemos, o laço for consiste em executar uma ação por um número determinado de vezes. E dentro dos parênteses() nós temos 3 parâmetros. ',
         style: TextStyle(fontFamily: 'CaviarDreams'),
       ),
-      SizedBox(height: 16),
-      const Text(
-        'for (int num = 1; num <= 10; num++){'
-        '\n print(num);'
-        '\n}',
-        style: TextStyle(fontFamily: 'Hack'),
-      )
+      const SizedBox(height: 16),
+      RichText(
+        text: const TextSpan(
+            text: 'Variável para controle ',
+            style: TextStyle(
+                color: Colors.indigoAccent,
+                fontFamily: 'CaviarDreams',
+                fontWeight: FontWeight.bold),
+            children: <TextSpan>[
+              TextSpan(text: ', ', style: TextStyle(color: Colors.black)),
+              TextSpan(
+                  text: 'Condição para executar',
+                  style: TextStyle(color: Colors.green)),
+              TextSpan(text: ' e ', style: TextStyle(color: Colors.black)),
+              TextSpan(
+                  text: 'Incremento da variável',
+                  style: TextStyle(color: Colors.amber)),
+              TextSpan(
+                  text: '.'
+                      '\nE com isso nós temos nosso ',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.normal)),
+              TextSpan(
+                  text: 'trecho de código ',
+                  style: TextStyle(color: Colors.purpleAccent)),
+              TextSpan(
+                  text: 'sendo repetido, quantas vezes precisarmos.',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.normal)),
+            ]),
+      ),
+      const SizedBox(height: 16),
+      Container(
+        padding: const EdgeInsets.all(16),
+        color: ColorsUtil.grayDark,
+        child: RichText(
+          text: const TextSpan(
+              text: 'for ',
+              style: TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+              children: <TextSpan>[
+                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: 'int num = 1; ',
+                    style: TextStyle(color: Colors.indigoAccent)),
+                TextSpan(
+                    text: 'num <= 10; ', style: TextStyle(color: Colors.green)),
+                TextSpan(text: 'num++', style: TextStyle(color: Colors.amber)),
+                TextSpan(text: '){', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\n print',
+                    style: TextStyle(color: Colors.purpleAccent)),
+                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: 'num', style: TextStyle(color: Colors.purpleAccent)),
+                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                TextSpan(text: '\n}', style: TextStyle(color: Colors.white))
+              ]),
+        ),
+      ),
     ]);
   }
 
@@ -431,6 +687,117 @@ class _DartPageState extends State<DartPage> {
           ),
         ],
       ),
+      const Text(
+          'O comando Switch tem a função de executar um determinado código quando atender a uma condição específica. '
+          'E geralmente é usado quando temos várias opções possíveis.',
+          style: TextStyle(
+            fontFamily: 'CaviarDreams',
+          )),
+      const SizedBox(height: 16),
+      Container(
+        padding: const EdgeInsets.all(16),
+        color: ColorsUtil.grayDark,
+        child: RichText(
+          text: const TextSpan(
+              text: 'switch ',
+              style: TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+              children: <TextSpan>[
+                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                TextSpan(text: 'estado', style: TextStyle(color: Colors.blue)),
+                TextSpan(text: ') {', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\n   case \'MG\':',
+                    style: TextStyle(color: Colors.orange)),
+                TextSpan(
+                    text: '\n    print',
+                    style: TextStyle(color: Colors.cyanAccent)),
+                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\'O Imposto de MG é 18%\'',
+                    style: TextStyle(color: Colors.green)),
+                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\n   break;',
+                    style: TextStyle(color: Colors.orange)),
+                TextSpan(
+                    text: '\n   case \'AC\':',
+                    style: TextStyle(color: Colors.orange)),
+                TextSpan(
+                    text: '\n    print',
+                    style: TextStyle(color: Colors.cyanAccent)),
+                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\'O Imposto de AC é 17%\'',
+                    style: TextStyle(color: Colors.green)),
+                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\n   break;',
+                    style: TextStyle(color: Colors.orange)),
+                TextSpan(
+                    text: '\n   case \'AL\':',
+                    style: TextStyle(color: Colors.orange)),
+                TextSpan(
+                    text: '\n    print',
+                    style: TextStyle(color: Colors.cyanAccent)),
+                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\'O Imposto de AL é 12%\'',
+                    style: TextStyle(color: Colors.green)),
+                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\n   break;',
+                    style: TextStyle(color: Colors.orange)),
+                TextSpan(
+                    text: '\n   case \'RJ\':',
+                    style: TextStyle(color: Colors.orange)),
+                TextSpan(
+                    text: '\n    print',
+                    style: TextStyle(color: Colors.cyanAccent)),
+                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\'O Imposto de RJ é 18%\'',
+                    style: TextStyle(color: Colors.green)),
+                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\n   break;',
+                    style: TextStyle(color: Colors.orange)),
+                TextSpan(
+                    text: '\n   case \'SC\':',
+                    style: TextStyle(color: Colors.orange)),
+                TextSpan(
+                    text: '\n    print',
+                    style: TextStyle(color: Colors.cyanAccent)),
+                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\'O Imposto de SC é 17%\'',
+                    style: TextStyle(color: Colors.green)),
+                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\n   break;',
+                    style: TextStyle(color: Colors.orange)),
+                TextSpan(
+                    text: '\n   default:',
+                    style: TextStyle(color: Colors.orange)),
+                TextSpan(
+                    text: '\n    print',
+                    style: TextStyle(color: Colors.cyanAccent)),
+                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: '\'Venda indisponível para seu estado.\'',
+                    style: TextStyle(color: Colors.green)),
+                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                TextSpan(text: '\n  }', style: TextStyle(color: Colors.white)),
+              ]),
+        ),
+      ),
+      const SizedBox(height: 16),
+      const Text(
+          'Por exemplo esse exemplo acima, o Switch está testando qual o ESTADO está sendo informado. '
+          'Caso seja algum dos exemplos ele irá printar exatamente a aliquota. '
+          'Mas caso o estado desconhecido, ele irá entrar na opção DEFAULT e irá exibir a mensagem que a venda está indisponível.',
+          style: TextStyle(
+            fontFamily: 'CaviarDreams',
+          )),
     ]);
   }
 }

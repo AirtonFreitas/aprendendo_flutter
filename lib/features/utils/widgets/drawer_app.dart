@@ -119,30 +119,31 @@ class DrawerApp extends StatelessWidget {
               SizedBox(
                 height: 8,
               ),
-             GestureDetector(
-               onTap: () {
-                 Navigator.pop(context);
-                 _goAprendendoSql();
-               },
-               child:  Row(
-               children: [
-                 SizedBox(
-                   width: 32,
-                 ),
-                 Image.asset(
-                   'assets/image/aprendendo_sql.png',
-                   width: 50,
-                   height: 50,
-                 ),
-                 SizedBox(
-                   width: 8,
-                 ),
-                 Text(
-                   'Aprendendo SQL',
-                   style: TextStyle(fontFamily: 'Frederic'),
-                 ),
-               ],
-             ),)
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                  _goAprendendoSql();
+                },
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 32,
+                    ),
+                    Image.asset(
+                      'assets/image/aprendendo_sql.png',
+                      width: 50,
+                      height: 50,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      'Aprendendo SQL',
+                      style: TextStyle(fontFamily: 'Frederic'),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
           Image.asset(
@@ -156,12 +157,10 @@ class DrawerApp extends StatelessWidget {
   }
 
   _goAprendendoSql() async {
-    const url = 'https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendosql';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
+    final Uri url = Uri.parse(
+        'https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendosql');
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $url';
     }
   }
-
 }
