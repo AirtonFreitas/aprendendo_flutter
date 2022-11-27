@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -17,6 +18,17 @@ class DartPage extends StatefulWidget {
 }
 
 class _DartPageState extends State<DartPage> {
+  late AdmobInterstitial interstitialAd;
+
+  @override
+  void initState() {
+    super.initState();
+    interstitialAd = AdmobInterstitial(
+      adUnitId: 'ca-app-pub-3721429763641925/1395983395',
+    );
+    interstitialAd.load();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,11 +76,14 @@ class _DartPageState extends State<DartPage> {
               textAlign: TextAlign.start,
             ),
           ],
-        ),                  const SizedBox(height: 16),
+        ),
+        const SizedBox(height: 16),
+        getBannerMid(AdmobBannerSize.BANNER),
+        const SizedBox(height: 16),
         _homeStore.clickAd == false
             ? GestureDetector(
                 child: const WidgetContinuarLendo(),
-                onTap: () => _homeStore.setClickAd())
+                onTap: () => _showInterstitial())
             : const SizedBox.shrink(),
         _homeStore.clickAd
             ? Column(
@@ -76,6 +91,8 @@ class _DartPageState extends State<DartPage> {
                   _buildVariaveis(),
                   const SizedBox(height: 16),
                   const Divider(),
+                  const SizedBox(height: 16),
+                  getBannerMid(AdmobBannerSize.BANNER),
                   const SizedBox(height: 16),
                   _buildConstantes(),
                   const SizedBox(height: 16),
@@ -89,7 +106,10 @@ class _DartPageState extends State<DartPage> {
                   const SizedBox(height: 16),
                   const Divider(),
                   const SizedBox(height: 16),
-                  _buildSwitchCase()
+                  _buildSwitchCase(),
+                  const SizedBox(height: 16),
+                  getBanner(AdmobBannerSize.BANNER),
+
                 ],
               )
             : const SizedBox.shrink(),
@@ -799,5 +819,24 @@ class _DartPageState extends State<DartPage> {
             fontFamily: 'CaviarDreams',
           )),
     ]);
+  }
+
+  AdmobBanner getBannerMid(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/4338336340',
+      adSize: size,
+    );
+  }
+
+  AdmobBanner getBanner(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/8336796261',
+      adSize: size,
+    );
+  }
+
+  Future<void> _showInterstitial() async {
+    _homeStore.setClickAd();
+    interstitialAd.show();
   }
 }

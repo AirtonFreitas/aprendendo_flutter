@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:aprendendo_flutter/configs/utils/colors_utils.dart';
 import 'package:aprendendo_flutter/features/utils/widgets/app_bar.dart';
 import 'package:aprendendo_flutter/features/utils/widgets/drawer_app.dart';
@@ -44,10 +45,13 @@ class _HomePageState extends State<HomePage> {
       children: [
         _widgetFlutter(),
         const Divider(),
-        const SizedBox(
-          height: 8,
-        ),
+        const SizedBox(height: 16),
+        getBannerMid(AdmobBannerSize.BANNER),
+        const SizedBox(height: 16),
         _widgetConteudo(),
+        const SizedBox(height: 16),
+        getBanner(AdmobBannerSize.BANNER),
+        const SizedBox(height: 16),
       ],
     );
   }
@@ -241,6 +245,20 @@ class _HomePageState extends State<HomePage> {
               fontSize: 14,
             )),
       ],
+    );
+  }
+
+  AdmobBanner getBannerMid(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/5651418014',
+      adSize: size,
+    );
+  }
+
+  AdmobBanner getBanner(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/5902204614',
+      adSize: size,
     );
   }
 }

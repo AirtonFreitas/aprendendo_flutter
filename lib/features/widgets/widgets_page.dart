@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -17,6 +18,17 @@ class WidgetsPage extends StatefulWidget {
 }
 
 class _WidgetsPageState extends State<WidgetsPage> {
+  late AdmobInterstitial interstitialAd;
+
+  @override
+  void initState() {
+    super.initState();
+    interstitialAd = AdmobInterstitial(
+      adUnitId: 'ca-app-pub-3721429763641925/1395983395',
+    );
+    interstitialAd.load();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,12 +76,13 @@ class _WidgetsPageState extends State<WidgetsPage> {
           ],
         ),
         const SizedBox(height: 16),
+        getBannerMid(AdmobBannerSize.BANNER),
+        const SizedBox(height: 16),
         _homeStore.clickAd == false
             ? GestureDetector(
                 child: const WidgetContinuarLendo(),
-                onTap: () => _homeStore.setClickAd())
+                onTap: () => _showInterstitial())
             : const SizedBox.shrink(),
-        const SizedBox(height: 16),
         _homeStore.clickAd ? _buildExemplo() : const SizedBox.shrink(),
       ],
     );
@@ -139,9 +152,17 @@ class _WidgetsPageState extends State<WidgetsPage> {
   Widget _buildExemplo() {
     return Column(children: [
       _buildScaffold(),
-      const SizedBox(height: 32),
+      const SizedBox(height: 16),
+      const Divider(),
+      const SizedBox(height: 16),
       _buildContainer(),
-      const SizedBox(height: 32),
+      const SizedBox(height: 16),
+      const Divider(),
+      const SizedBox(height: 16),
+      getBannerMid(AdmobBannerSize.BANNER),
+      const SizedBox(height: 16),
+      const Divider(),
+      const SizedBox(height: 16),
       _buildColumnandRow(),
       const SizedBox(height: 16),
       const Divider(),
@@ -159,13 +180,20 @@ class _WidgetsPageState extends State<WidgetsPage> {
           ),
         ],
       ),
-      const SizedBox(height: 32),
+      const SizedBox(height: 16),
+
       _buildText(),
-      const SizedBox(height: 32),
+      const SizedBox(height: 16),
+      const Divider(),
+      const SizedBox(height: 16),
       _buildImage(),
-      const SizedBox(height: 32),
+      const SizedBox(height: 16),
+      const Divider(),
+      const SizedBox(height: 16),
       _buildIcon(),
-      const SizedBox(height: 32),
+      const SizedBox(height: 16),
+      const Divider(),
+      const SizedBox(height: 16),
       _buildButton(),
       const SizedBox(height: 32),
       const Divider(),
@@ -175,6 +203,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
         style: TextStyle(fontFamily: 'CaviarDreams'),
         textAlign: TextAlign.start,
       ),
+      const SizedBox(height: 16),
+      getBanner(AdmobBannerSize.BANNER),
     ]);
   }
 
@@ -481,9 +511,9 @@ class _WidgetsPageState extends State<WidgetsPage> {
                     'Image.network(\n  \'https://play-lh.googleusercontent.com/v8jLJpznONNKeFwynI9-IQtDRlwqcYIV9oCz0JplSFpyjlDQakZ7E-Sd3FGFyuG4I3s=w240-h480-rw\',\nwidth: 100,)')),
             Container(
               padding: const EdgeInsets.all(8),
-              color: Colors.green,
-              child: Image.network(
-                'https://play-lh.googleusercontent.com/v8jLJpznONNKeFwynI9-IQtDRlwqcYIV9oCz0JplSFpyjlDQakZ7E-Sd3FGFyuG4I3s=w240-h480-rw',
+              color: Colors.white,
+              child: Image.asset(
+                'assets/image/aprendendo_sql.png',
                 width: 80,
               ),
             )
@@ -651,5 +681,24 @@ class _WidgetsPageState extends State<WidgetsPage> {
         ),
       ],
     );
+  }
+
+  AdmobBanner getBannerMid(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/2997921243',
+      adSize: size,
+    );
+  }
+
+  AdmobBanner getBanner(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/9036129255',
+      adSize: size,
+    );
+  }
+
+  Future<void> _showInterstitial() async {
+    _homeStore.setClickAd();
+    interstitialAd.show();
   }
 }

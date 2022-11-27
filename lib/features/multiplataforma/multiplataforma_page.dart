@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 
 import '../../configs/utils/colors_utils.dart';
@@ -82,7 +83,8 @@ class _MultiPlataformaPageState extends State<MultiPlataformaPage> {
             color: ColorsUtil.black,
             fontFamily: 'CaviarDreams',
           ),
-        ),
+        ),const SizedBox(height: 16),
+        getBannerMid(AdmobBannerSize.BANNER),
       ],
     );
   }
@@ -139,8 +141,23 @@ class _MultiPlataformaPageState extends State<MultiPlataformaPage> {
         Image.asset(
           'assets/image/flutterinho_ensinandos.png',
           width: 100,
-        )
+        ),const SizedBox(height: 16),
+        getBanner(AdmobBannerSize.BANNER),
       ],
+    );
+  }
+
+  AdmobBanner getBannerMid(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/5624084584',
+      adSize: size,
+    );
+  }
+
+  AdmobBanner getBanner(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/1903744697',
+      adSize: size,
     );
   }
 }

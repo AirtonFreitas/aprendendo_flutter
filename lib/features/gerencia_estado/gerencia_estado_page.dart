@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -17,6 +18,17 @@ class GerenciaEstadoPage extends StatefulWidget {
 }
 
 class _GerenciaEstadoPageState extends State<GerenciaEstadoPage> {
+  late AdmobInterstitial interstitialAd;
+
+  @override
+  void initState() {
+    super.initState();
+    interstitialAd = AdmobInterstitial(
+      adUnitId: 'ca-app-pub-3721429763641925/1395983395',
+    );
+    interstitialAd.load();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,11 +66,14 @@ class _GerenciaEstadoPageState extends State<GerenciaEstadoPage> {
       const Text(
         'Detalhando um pouco...',
         style: TextStyle(fontFamily: 'Frederic', fontSize: 18),
-      ),const SizedBox(height: 16),
+      ),
+      const SizedBox(height: 16),
+      getBannerMid(AdmobBannerSize.BANNER),
+      const SizedBox(height: 16),
       _homeStore.clickAd == false
           ? GestureDetector(
               child: const WidgetContinuarLendo(),
-              onTap: () => _homeStore.setClickAd())
+              onTap: () => _showInterstitial())
           : const SizedBox.shrink(),
       const SizedBox(height: 16),
       _homeStore.clickAd ? _detalhamento() : const SizedBox.shrink(),
@@ -286,6 +301,8 @@ class _GerenciaEstadoPageState extends State<GerenciaEstadoPage> {
         const SizedBox(height: 16),
         const Divider(),
         const SizedBox(height: 16),
+        getBannerMid(AdmobBannerSize.BANNER),
+        const SizedBox(height: 16),
         const Text(
           'Vamos ver como fica com Mobx?',
           style: TextStyle(fontFamily: 'Frederic', fontSize: 18),
@@ -427,7 +444,28 @@ class _GerenciaEstadoPageState extends State<GerenciaEstadoPage> {
             fontFamily: 'CaviarDreams',
           ),
         ),
+        const SizedBox(height: 16),
+        getBanner(AdmobBannerSize.BANNER),
       ],
     );
+  }
+
+  AdmobBanner getBannerMid(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/3830575046',
+      adSize: size,
+    );
+  }
+
+  AdmobBanner getBanner(AdmobBannerSize size) {
+    return AdmobBanner(
+      adUnitId: 'ca-app-pub-3721429763641925/5025318785',
+      adSize: size,
+    );
+  }
+
+  Future<void> _showInterstitial() async {
+    _homeStore.setClickAd();
+    interstitialAd.show();
   }
 }
