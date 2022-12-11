@@ -124,6 +124,13 @@ class _OndeEstudarPageState extends State<OndeEstudarPage> {
       const SizedBox(height: 8),
       const Divider(),
       const SizedBox(height: 8),
+      GestureDetector(
+          child: _goRate(),
+          onTap: () => _goLinks(
+              'https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendoflutter.aprendendo_flutter')),
+      const SizedBox(height: 8),
+      const Divider(),
+      const SizedBox(height: 8),
       const Text(
         'Meus apps de ensino',
         style: TextStyle(
@@ -238,56 +245,62 @@ class _OndeEstudarPageState extends State<OndeEstudarPage> {
         ],
       ),
       const SizedBox(height: 8),
-      const Divider(),
-      const SizedBox(height: 8),
-      const Text(
-        'Me conte o que você achou do app?',
-        style: TextStyle(
-            color: ColorsUtil.black,
-            fontFamily: 'CaviarDreams',
-            fontSize: 18,
-            fontWeight: FontWeight.bold),
-      ),
-      const SizedBox(height: 16),
-      Container(
-        padding: const EdgeInsets.all(32),
-        color: ColorsUtil.grayC,
-        child: Column(
-          children: [
-            const Text('Avalie o app',
-                style: TextStyle(
-                    fontFamily: 'CaviarDreams',
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold)),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: const [
-                Icon(
-                  Icons.star,
-                  color: Colors.orange,
-                ),
-                Icon(
-                  Icons.star,
-                  color: Colors.orange,
-                ),
-                Icon(
-                  Icons.star,
-                  color: Colors.orange,
-                ),
-                Icon(
-                  Icons.star,
-                  color: Colors.orange,
-                ),
-                Icon(
-                  Icons.star,
-                  color: Colors.yellow,
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
+
     ]);
+  }
+
+  Widget _goRate() {
+    return Column(
+      children: [
+        const Text(
+          'O que você achou do app?',
+          style: TextStyle(
+              color: ColorsUtil.black,
+              fontFamily: 'CaviarDreams',
+              fontSize: 18,
+              fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 16),
+        Container(
+          padding: const EdgeInsets.all(32),
+          color: ColorsUtil.grayC,
+          child: Column(
+            children: [
+              const Text('Avalie o app',
+                  style: TextStyle(
+                      fontFamily: 'CaviarDreams',
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold)),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  Icon(
+                    Icons.star,
+                    color: Colors.orange,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.orange,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.orange,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.orange,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.yellow,
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ],
+    );
   }
 
   _goLinks(String link) async {

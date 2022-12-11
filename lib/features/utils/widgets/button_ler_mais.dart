@@ -21,7 +21,7 @@ class WidgetContinuarLendo extends StatelessWidget {
               style: TextStyle(
                   fontFamily: 'CaviarDreams', fontWeight: FontWeight.bold)),
           SizedBox(width: 16),
-          Icon(Icons.arrow_circle_down_sharp)
+          Icon(Icons.arrow_circle_down_sharp,size: 42,)
         ],
       ),
     );
