@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -22,7 +22,10 @@ class _SplashPageState extends State<SplashPage> {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Lottie.asset('assets/animations/flutter_logo.json',
               width: MediaQuery.of(context).size.width * 0.7, fit: BoxFit.fill),
-          const Text('Aprendendo Flutter',style: TextStyle(fontFamily: 'Frederic', fontSize: 18),),
+          Text(
+            AppLocalizations.of(context)!.aprenderFlutter,
+            style: const TextStyle(fontFamily: 'Frederic', fontSize: 18),
+          )
         ]),
       ),
     );
