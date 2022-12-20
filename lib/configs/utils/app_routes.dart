@@ -35,12 +35,12 @@ class RouteGenerator {
 
   static Route<dynamic> _erroRoute() {
     return MaterialPageRoute(builder: (_) {
-      return const Scaffold(
-        appBar: PreferredSize(
+      return Scaffold(
+        appBar: const PreferredSize(
           preferredSize: Size.fromHeight(65),
           child: Text('ERROR'),
         ),
-        body: Text('Página não encontrada'),
+        body: Text('Page not Found'),
       );
     });
   }

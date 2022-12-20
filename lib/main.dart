@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Aprendendo Flutter',
+      title: AppLocalizations.of(context)!.titleApp,
       theme: ThemeData(
           fontFamily: 'Heavitas',
           primaryColor: ColorsUtil.black,
@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('en', ''),
         Locale('pt', ''),
+        Locale('es', ''),
       ],
     );
   }
