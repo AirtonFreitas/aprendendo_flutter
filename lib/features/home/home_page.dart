@@ -3,6 +3,7 @@ import 'package:aprendendo_flutter/configs/utils/colors_utils.dart';
 import 'package:aprendendo_flutter/features/utils/widgets/app_bar.dart';
 import 'package:aprendendo_flutter/features/utils/widgets/drawer_app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
           child: AppBar(
             elevation: 0,
             backgroundColor: ColorsUtil.blue,
-            title: const AppBarWidget(title: 'Aprendendo Flutter'),
+            title: AppBarWidget(title: AppLocalizations.of(context)!.titleApp),
             leading: Builder(
               builder: (BuildContext context) {
                 return IconButton(
@@ -61,9 +62,9 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-          const Text(
-            'O que é o flutter?',
-            style: TextStyle(fontFamily: 'Frederic', fontSize: 18),
+          Text(
+            AppLocalizations.of(context)!.whatFlutter,
+            style: const TextStyle(fontFamily: 'Frederic', fontSize: 18),
           ),
           const Text(
             'O Flutter é um dos principais frameworks para o desenvolvimento de aplicações mobile.',

@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:aprendendo_flutter/configs/utils/colors_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DrawerApp extends StatelessWidget {
   const DrawerApp({Key? key}) : super(key: key);
@@ -13,7 +12,7 @@ class DrawerApp extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/image/background_drawer.png'),
                     fit: BoxFit.cover),
@@ -21,20 +20,20 @@ class DrawerApp extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    'Aprendendo Flutter',
-                    style: TextStyle(fontFamily: 'Frederic'),
+                    AppLocalizations.of(context)!.titleApp,
+                    style: const TextStyle(fontFamily: 'Frederic'),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
                   Image.asset('assets/image/flutterinho_ensinando.png'),
                 ],
               )),
           ListTile(
-            leading: Icon(Icons.code),
+            leading: const Icon(Icons.code),
             title: Text(
-              'O que é o Flutter?',
-              style: TextStyle(fontFamily: 'Frederic'),
+              AppLocalizations.of(context)!.whatFlutter,
+              style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -43,10 +42,10 @@ class DrawerApp extends StatelessWidget {
           ),
           const Divider(),
           ListTile(
-            leading: Icon(Icons.settings_ethernet),
+            leading: const Icon(Icons.settings_ethernet),
             title: Text(
-              'O que é o Dart?',
-              style: TextStyle(fontFamily: 'Frederic'),
+              AppLocalizations.of(context)!.whatDart,
+              style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -55,10 +54,10 @@ class DrawerApp extends StatelessWidget {
           ),
           const Divider(),
           ListTile(
-            leading: Icon(Icons.widgets_outlined),
+            leading: const Icon(Icons.widgets_outlined),
             title: Text(
-              'O que são os Widgets?',
-              style: TextStyle(fontFamily: 'Frederic'),
+              AppLocalizations.of(context)!.whatWidgets,
+              style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -67,10 +66,10 @@ class DrawerApp extends StatelessWidget {
           ),
           const Divider(),
           ListTile(
-            leading: Icon(Icons.remove_red_eye_outlined),
+            leading: const Icon(Icons.remove_red_eye_outlined),
             title: Text(
-              'O que é gerência de estado?',
-              style: TextStyle(fontFamily: 'Frederic'),
+              AppLocalizations.of(context)!.whatState,
+              style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -88,8 +87,8 @@ class DrawerApp extends StatelessWidget {
               ],
             ),
             title: Text(
-              'O que é ser multiplataforma?',
-              style: TextStyle(fontFamily: 'Frederic'),
+              AppLocalizations.of(context)!.whatMultiplatform,
+              style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -98,10 +97,10 @@ class DrawerApp extends StatelessWidget {
           ),
           const Divider(),
           ListTile(
-            leading: Icon(Icons.menu_book),
+            leading: const Icon(Icons.menu_book),
             title: Text(
-              'Como aprender mais?',
-              style: TextStyle(fontFamily: 'Frederic'),
+              AppLocalizations.of(context)!.learn,
+              style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -111,12 +110,12 @@ class DrawerApp extends StatelessWidget {
           const Divider(color: ColorsUtil.black),
           Column(
             children: [
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
-                'Aprenda mais com nossos apps',
-                style: TextStyle(fontFamily: 'Frederic'),
+                AppLocalizations.of(context)!.learnApps,
+                style: const TextStyle(fontFamily: 'Frederic'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               GestureDetector(
@@ -126,7 +125,7 @@ class DrawerApp extends StatelessWidget {
                 },
                 child: Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 32,
                     ),
                     Image.asset(
@@ -134,12 +133,12 @@ class DrawerApp extends StatelessWidget {
                       width: 50,
                       height: 50,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 8,
                     ),
                     Text(
-                      'Aprendendo SQL',
-                      style: TextStyle(fontFamily: 'Frederic'),
+                      AppLocalizations.of(context)!.learnSqlTitle,
+                      style: const TextStyle(fontFamily: 'Frederic'),
                     ),
                   ],
                 ),

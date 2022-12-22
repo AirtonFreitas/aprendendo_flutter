@@ -3,6 +3,16 @@
   "titleDart": "Linguagem Dart",
   "syntaxTitle": "Sintaxe",
   "nameDart": "Dart",
+
+  "whatFlutter": "O que é o Flutter?",
+  "whatDart": "O que é o Dart?",
+  "whatWidgets": "O que são os Widgets?",
+  "whatState": "O que é gerência de estado?",
+  "whatMultiplatform": "O que é ser multiplataforma?",
+  "learn": "Como aprender mais?",
+  "learnApps": "Aprenda mais com nossos apps",
+"learnSqlTitle": "Aprendendo SQL",
+
   "introduction": "Para as informações abaixo, estou considerando que você já sabe como funciona um algoritmo e já  tem conhecimento em lógica de programação.",
   "dartDescription": "O Dart é uma linguagem de programação fortemente tipada inicialmente criada pela Google em 2011. A missão inicial do Dart era substituir o JavaScript para desenvolvimento de scripts em páginas web. ",
   "dartEvolution": "Porém, com a evolução da linguagem e com o passar dos anos, ela hoje pode ser considerada uma linguagem multi-paradigma, embora a linguagem apresente fortes estruturas típicas de linguagens orientadas a objeto. \nVou mostrar um pouco da sintaxe do dart.",
@@ -36,7 +46,7 @@
   "switchRJ": "'O Imposto de RJ é 18%'",
   "switchSC": "'O Imposto de SC é 17%'",
   "switchDefault": "'Venda indisponível para seu estado.'",
-  "switchExample": "Por exemplo esse exemplo acima, o Switch está testando qual o ESTADO está sendo informado. '\n          'Caso seja algum dos exemplos ele irá printar exatamente a aliquota. '\n          'Mas caso o estado desconhecido, ele irá entrar na opção DEFAULT e irá exibir a mensagem que a venda está indisponível."
-
+  "switchExample": "Por exemplo esse exemplo acima, o Switch está testando qual o ESTADO está sendo informado. '\n          'Caso seja algum dos exemplos ele irá printar exatamente a aliquota. '\n          'Mas caso o estado desconhecido, ele irá entrar na opção DEFAULT e irá exibir a mensagem que a venda está indisponível.",
+"reading": "Continuar lendo..."
 
 }
