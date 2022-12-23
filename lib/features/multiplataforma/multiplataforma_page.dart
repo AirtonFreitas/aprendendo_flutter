@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../configs/utils/colors_utils.dart';
 import '../utils/widgets/app_bar.dart';
 import '../utils/widgets/drawer_app.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MultiPlataformaPage extends StatefulWidget {
   const MultiPlataformaPage({Key? key}) : super(key: key);
@@ -21,7 +22,8 @@ class _MultiPlataformaPageState extends State<MultiPlataformaPage> {
             child: AppBar(
               elevation: 0,
               backgroundColor: ColorsUtil.blue,
-              title: const AppBarWidget(title: 'Multiplataforma'),
+              title: AppBarWidget(
+                  title: AppLocalizations.of(context).nameMultiplatform),
               leading: Builder(
                 builder: (BuildContext context) {
                   return IconButton(
@@ -54,16 +56,16 @@ class _MultiPlataformaPageState extends State<MultiPlataformaPage> {
   Widget _buildIntroducao() {
     return Column(
       children: [
-        const Text(
-          'O que é ser Multiplataforma?',
-          style: TextStyle(fontFamily: 'Frederic', fontSize: 18),
+        Text(
+          AppLocalizations.of(context).whatMultiplatform,
+          style: const TextStyle(fontFamily: 'Frederic', fontSize: 18),
         ),
         Row(
           children: [
-            const Expanded(
+            Expanded(
                 child: Text(
-              'O flutter tem uma grande vantagem sobre outras tecnologias, que é ser multiplataforma. Um desenvolvedor flutter consegue programar para Android, IOS, web e até mesmo para desktop.',
-              style: TextStyle(
+              AppLocalizations.of(context).multplatformIntroduction,
+              style: const TextStyle(
                 color: ColorsUtil.black,
                 fontFamily: 'CaviarDreams',
               ),
@@ -74,16 +76,14 @@ class _MultiPlataformaPageState extends State<MultiPlataformaPage> {
             ),
           ],
         ),
-        const Text(
-          'Quando comparamos com outros frameworks, o flutter tem uma grande vantagem. '
-          'O custo do Flutter geralmente é menor. '
-          'Pois em alguns casos é preciso uma equipe de desenvolvimento IOS e outra equipe de desenvolvimento Android. '
-          'E no caso do flutter não é preciso uma equipe específica para cada plataforma, diminuindo consideravelmente os custos. ',
-          style: TextStyle(
+        Text(
+          AppLocalizations.of(context).multplatformDescription,
+          style: const TextStyle(
             color: ColorsUtil.black,
             fontFamily: 'CaviarDreams',
           ),
-        ),const SizedBox(height: 16),
+        ),
+        const SizedBox(height: 16),
         getBannerMid(AdmobBannerSize.BANNER),
       ],
     );
@@ -122,18 +122,16 @@ class _MultiPlataformaPageState extends State<MultiPlataformaPage> {
             ),
           ],
         ),
-        const Text(
-          'Temos diferentes plataformas, diferentes sistemas operacionais e cada um desses sistemas operacionais exige que o desenvolvimento das aplicações seja em uma linguagem específica. '
-          'Por exemplo IOS e Android. Ambos são \'mobile\' mas Android usa a linguagem Java e Kotlin, enquando o IOS usa o Swift.',
-          style: TextStyle(
+        Text(
+          AppLocalizations.of(context).multplatformDescriptionTwo,
+          style: const TextStyle(
             color: ColorsUtil.black,
             fontFamily: 'CaviarDreams',
           ),
         ),
-        const Text(
-          'Com o flutter temos a possibilidade de programar apenas uma vez, apenas um código e terá a opção de gerar versões para ambos sistemas operacionais. '
-          'Isso é ser multiplataforma.',
-          style: TextStyle(
+        Text(
+          AppLocalizations.of(context).multplatformConclude,
+          style: const TextStyle(
             color: ColorsUtil.black,
             fontFamily: 'CaviarDreams',
           ),
@@ -141,7 +139,8 @@ class _MultiPlataformaPageState extends State<MultiPlataformaPage> {
         Image.asset(
           'assets/image/flutterinho_ensinandos.png',
           width: 100,
-        ),const SizedBox(height: 16),
+        ),
+        const SizedBox(height: 16),
         getBanner(AdmobBannerSize.BANNER),
       ],
     );

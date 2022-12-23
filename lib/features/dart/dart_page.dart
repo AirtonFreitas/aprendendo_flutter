@@ -1,7 +1,7 @@
 import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../configs/utils/colors_utils.dart';
 import '../home/home_page_store.dart';
 import '../utils/widgets/app_bar.dart';
@@ -37,7 +37,8 @@ class _DartPageState extends State<DartPage> {
             child: AppBar(
               elevation: 0,
               backgroundColor: ColorsUtil.blue,
-              title: const AppBarWidget(title: 'Linguagem Dart'),
+              title:
+                  AppBarWidget(title: AppLocalizations.of(context).titleDart),
               leading: Builder(
                 builder: (BuildContext context) {
                   return IconButton(
@@ -67,12 +68,12 @@ class _DartPageState extends State<DartPage> {
         const Divider(),
         const SizedBox(height: 8),
         Row(
-          children: const [
-            Icon(Icons.sticky_note_2_outlined),
-            SizedBox(width: 8),
+          children: [
+            const Icon(Icons.sticky_note_2_outlined),
+            const SizedBox(width: 8),
             Text(
-              'Sintaxe',
-              style: TextStyle(fontFamily: 'Frederic', fontSize: 20),
+              AppLocalizations.of(context).syntaxTitle,
+              style: const TextStyle(fontFamily: 'Frederic', fontSize: 20),
               textAlign: TextAlign.start,
             ),
           ],
@@ -109,7 +110,6 @@ class _DartPageState extends State<DartPage> {
                   _buildSwitchCase(),
                   const SizedBox(height: 16),
                   getBanner(AdmobBannerSize.BANNER),
-
                 ],
               )
             : const SizedBox.shrink(),
@@ -120,24 +120,23 @@ class _DartPageState extends State<DartPage> {
   Widget _buildIntroducao() {
     return Column(
       children: [
-        const Text(
-          'Dart',
-          style: TextStyle(fontFamily: 'Frederic', fontSize: 18),
+        Text(
+          AppLocalizations.of(context).nameDart,
+          style: const TextStyle(fontFamily: 'Frederic', fontSize: 18),
         ),
         const SizedBox(height: 16),
-        const Text(
-          'Para as informações abaixo, estou considerando que você já sabe como funciona um algoritmo e já  tem conhecimento em lógica de programação.',
-          style: TextStyle(
+        Text(
+          AppLocalizations.of(context).introduction,
+          style: const TextStyle(
             fontFamily: 'CaviarDreams',
           ),
         ),
         Row(
           children: [
-            const Expanded(
+            Expanded(
               child: Text(
-                'O Dart é uma linguagem de programação fortemente tipada inicialmente criada pela Google em 2011. '
-                'A missão inicial do Dart era substituir o JavaScript para desenvolvimento de scripts em páginas web. ',
-                style: TextStyle(
+                AppLocalizations.of(context).dartDescription,
+                style: const TextStyle(
                   fontFamily: 'CaviarDreams',
                 ),
               ),
@@ -148,17 +147,16 @@ class _DartPageState extends State<DartPage> {
             )
           ],
         ),
-        const Text(
-          'Porém, com a evolução da linguagem e com o passar dos anos, ela hoje pode ser considerada uma linguagem multi-paradigma, embora a linguagem apresente fortes estruturas típicas de linguagens orientadas a objeto. '
-          '\nVou mostrar um pouco da sintaxe do dart.',
-          style: TextStyle(
+        Text(
+          AppLocalizations.of(context).dartEvolution,
+          style: const TextStyle(
             fontFamily: 'CaviarDreams',
           ),
         ),
         const SizedBox(height: 6),
-        const Text(
-          'Primeiro vamos ver como seria um siples \'Hello World\' em dart.',
-          style: TextStyle(
+        Text(
+          AppLocalizations.of(context).firstSee,
+          style: const TextStyle(
             fontFamily: 'CaviarDreams',
           ),
         ),
@@ -193,8 +191,8 @@ class _DartPageState extends State<DartPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Variáveis',
-                style: TextStyle(
+            Text(AppLocalizations.of(context).variables,
+                style: const TextStyle(
                   fontFamily: 'Frederic',
                   fontSize: 18,
                 )),
@@ -205,9 +203,9 @@ class _DartPageState extends State<DartPage> {
             ),
           ],
         ),
-        const Text(
-          'Você pode criar uma variável sem declarar exatamente o tipo da variável. Mas o tipo da variável é inferido no momento em que você declarar um valor para a variável.',
-          style: TextStyle(
+        Text(
+          AppLocalizations.of(context).variablesCreate,
+          style: const TextStyle(
             fontFamily: 'CaviarDreams',
           ),
         ),
@@ -417,15 +415,13 @@ class _DartPageState extends State<DartPage> {
           ],
         ),
         const SizedBox(height: 16),
-        const Text(
-          'Então o tipo \'var\' fica como dynamic caso não seja definido um valor para a variável. '
-          'Após a definição de algum valor para variável ela tem o tipo inferido.'
-          'E após isso não temos como alterar o tipo da variável.',
-          style: TextStyle(fontFamily: 'CaviarDreams'),
+        Text(
+          AppLocalizations.of(context).variableDynamic,
+          style: const TextStyle(fontFamily: 'CaviarDreams'),
         ),
-        const Text(
-          'E você pode também criar a variável declarando o formato diretamente:',
-          style: TextStyle(fontFamily: 'CaviarDreams'),
+        Text(
+          AppLocalizations.of(context).variableCreateType,
+          style: const TextStyle(fontFamily: 'CaviarDreams'),
         ),
         const SizedBox(height: 16),
         Container(
@@ -493,9 +489,9 @@ class _DartPageState extends State<DartPage> {
               ],
             )),
         const SizedBox(height: 16),
-        const Text(
-          'Lembrando que não é possível alterar o formato da variável.',
-          style: TextStyle(fontFamily: 'CaviarDreams'),
+        Text(
+          AppLocalizations.of(context).rememberingVariable,
+          style: const TextStyle(fontFamily: 'CaviarDreams'),
         )
       ],
     );
@@ -508,8 +504,8 @@ class _DartPageState extends State<DartPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Variáveis Constantes',
-                style: TextStyle(
+            Text(AppLocalizations.of(context).variablesConst,
+                style: const TextStyle(
                   fontFamily: 'Frederic',
                   fontSize: 18,
                 )),
@@ -520,9 +516,9 @@ class _DartPageState extends State<DartPage> {
             ),
           ],
         ),
-        const Text(
-          'Para declarar uma variável constante, basta ao invés de \'var\', usar a palavra \'final\'.',
-          style: TextStyle(fontFamily: 'CaviarDreams'),
+        Text(
+          AppLocalizations.of(context).variablesConstCreate,
+          style: const TextStyle(fontFamily: 'CaviarDreams'),
         ),
         const SizedBox(height: 8),
         Container(
@@ -553,8 +549,8 @@ class _DartPageState extends State<DartPage> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('If e Else',
-              style: TextStyle(
+          Text(AppLocalizations.of(context).ifAndElseTitle,
+              style: const TextStyle(
                 fontFamily: 'Frederic',
                 fontSize: 18,
               )),
@@ -565,13 +561,13 @@ class _DartPageState extends State<DartPage> {
           ),
         ],
       ),
-      const Text(
-        'Para o exemplo abaixo, se o saldo for maior ou igual ao valorSaque, ele permitirá realizar o saque. Senão o sistema não fará o saque.',
-        style: TextStyle(fontFamily: 'CaviarDreams'),
+      Text(
+        AppLocalizations.of(context).ifAndElseExample,
+        style: const TextStyle(fontFamily: 'CaviarDreams'),
       ),
-      const Text(
-        'Entre os parênteses temos a condição do IF, caso atenda as condições o código dentro das chaves será executado. Caso não atenda as condições, será executado o código dentro das chaves do ELSE.',
-        style: TextStyle(fontFamily: 'CaviarDreams'),
+      Text(
+        AppLocalizations.of(context).ifAndElseConditions,
+        style: const TextStyle(fontFamily: 'CaviarDreams'),
       ),
       const SizedBox(height: 16),
       Container(
@@ -608,8 +604,8 @@ class _DartPageState extends State<DartPage> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('For',
-              style: TextStyle(
+          Text(AppLocalizations.of(context).forTitle,
+              style: const TextStyle(
                 fontFamily: 'Frederic',
                 fontSize: 18,
               )),
@@ -620,42 +616,43 @@ class _DartPageState extends State<DartPage> {
           ),
         ],
       ),
-      const Text(
-        'Para o exemplo do laço de repetição FOR, faremos uma contagem dos números até alcançar o número 10.',
-        style: TextStyle(fontFamily: 'CaviarDreams'),
+      Text(
+        AppLocalizations.of(context).forExample,
+        style: const TextStyle(fontFamily: 'CaviarDreams'),
       ),
-      const Text(
-        'Conforme sabemos, o laço for consiste em executar uma ação por um número determinado de vezes. E dentro dos parênteses() nós temos 3 parâmetros. ',
-        style: TextStyle(fontFamily: 'CaviarDreams'),
+      Text(
+        AppLocalizations.of(context).forDescription,
+        style: const TextStyle(fontFamily: 'CaviarDreams'),
       ),
       const SizedBox(height: 16),
       RichText(
-        text: const TextSpan(
-            text: 'Variável para controle ',
-            style: TextStyle(
+        text: TextSpan(
+            text: AppLocalizations.of(context).forVariableControl,
+            style: const TextStyle(
                 color: Colors.indigoAccent,
                 fontFamily: 'CaviarDreams',
                 fontWeight: FontWeight.bold),
             children: <TextSpan>[
-              TextSpan(text: ', ', style: TextStyle(color: Colors.black)),
+              const TextSpan(text: ', ', style: TextStyle(color: Colors.black)),
               TextSpan(
-                  text: 'Condição para executar',
-                  style: TextStyle(color: Colors.green)),
-              TextSpan(text: ' e ', style: TextStyle(color: Colors.black)),
+                  text: AppLocalizations.of(context).forConditions,
+                  style: const TextStyle(color: Colors.green)),
               TextSpan(
-                  text: 'Incremento da variável',
-                  style: TextStyle(color: Colors.amber)),
+                  text: AppLocalizations.of(context).forAnd,
+                  style: const TextStyle(color: Colors.black)),
               TextSpan(
-                  text: '.'
-                      '\nE com isso nós temos nosso ',
-                  style: TextStyle(
+                  text: AppLocalizations.of(context).forIncrementVariable,
+                  style: const TextStyle(color: Colors.amber)),
+              TextSpan(
+                  text: AppLocalizations.of(context).forDescriptionT,
+                  style: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.normal)),
               TextSpan(
-                  text: 'trecho de código ',
-                  style: TextStyle(color: Colors.purpleAccent)),
+                  text: AppLocalizations.of(context).forCode,
+                  style: const TextStyle(color: Colors.purpleAccent)),
               TextSpan(
-                  text: 'sendo repetido, quantas vezes precisarmos.',
-                  style: TextStyle(
+                  text: AppLocalizations.of(context).forRepet,
+                  style: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.normal)),
             ]),
       ),
@@ -695,8 +692,8 @@ class _DartPageState extends State<DartPage> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Switch',
-              style: TextStyle(
+          Text(AppLocalizations.of(context).switchTitle,
+              style: const TextStyle(
                 fontFamily: 'Frederic',
                 fontSize: 18,
               )),
@@ -707,10 +704,8 @@ class _DartPageState extends State<DartPage> {
           ),
         ],
       ),
-      const Text(
-          'O comando Switch tem a função de executar um determinado código quando atender a uma condição específica. '
-          'E geralmente é usado quando temos várias opções possíveis.',
-          style: TextStyle(
+      Text(AppLocalizations.of(context).switchDescription,
+          style: const TextStyle(
             fontFamily: 'CaviarDreams',
           )),
       const SizedBox(height: 16),
@@ -718,104 +713,118 @@ class _DartPageState extends State<DartPage> {
         padding: const EdgeInsets.all(16),
         color: ColorsUtil.grayDark,
         child: RichText(
-          text: const TextSpan(
+          text: TextSpan(
               text: 'switch ',
-              style: TextStyle(color: Colors.orange, fontFamily: 'Hack'),
+              style: const TextStyle(color: Colors.orange, fontFamily: 'Hack'),
               children: <TextSpan>[
-                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
-                TextSpan(text: 'estado', style: TextStyle(color: Colors.blue)),
-                TextSpan(text: ') {', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
+                    text: AppLocalizations.of(context).switchState,
+                    style: const TextStyle(color: Colors.blue)),
+                const TextSpan(
+                    text: ') {', style: TextStyle(color: Colors.white)),
+                const TextSpan(
                     text: '\n   case \'MG\':',
                     style: TextStyle(color: Colors.orange)),
-                TextSpan(
+                const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: '\'O Imposto de MG é 18%\'',
-                    style: TextStyle(color: Colors.green)),
-                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
-                TextSpan(
+                    text: AppLocalizations.of(context).switchMG,
+                    style: const TextStyle(color: Colors.green)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
                     text: '\n   break;',
                     style: TextStyle(color: Colors.orange)),
-                TextSpan(
+                const TextSpan(
                     text: '\n   case \'AC\':',
                     style: TextStyle(color: Colors.orange)),
-                TextSpan(
+                const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: '\'O Imposto de AC é 17%\'',
-                    style: TextStyle(color: Colors.green)),
-                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
-                TextSpan(
+                    text: AppLocalizations.of(context).switchAC,
+                    style: const TextStyle(color: Colors.green)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
                     text: '\n   break;',
                     style: TextStyle(color: Colors.orange)),
-                TextSpan(
+                const TextSpan(
                     text: '\n   case \'AL\':',
                     style: TextStyle(color: Colors.orange)),
-                TextSpan(
+                const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: '\'O Imposto de AL é 12%\'',
-                    style: TextStyle(color: Colors.green)),
-                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
-                TextSpan(
+                    text: AppLocalizations.of(context).switchAL,
+                    style: const TextStyle(color: Colors.green)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
                     text: '\n   break;',
                     style: TextStyle(color: Colors.orange)),
-                TextSpan(
+                const TextSpan(
                     text: '\n   case \'RJ\':',
                     style: TextStyle(color: Colors.orange)),
-                TextSpan(
+                const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: '\'O Imposto de RJ é 18%\'',
-                    style: TextStyle(color: Colors.green)),
-                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
-                TextSpan(
+                    text: AppLocalizations.of(context).switchRJ,
+                    style: const TextStyle(color: Colors.green)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
                     text: '\n   break;',
                     style: TextStyle(color: Colors.orange)),
-                TextSpan(
+                const TextSpan(
                     text: '\n   case \'SC\':',
                     style: TextStyle(color: Colors.orange)),
-                TextSpan(
+                const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: '\'O Imposto de SC é 17%\'',
-                    style: TextStyle(color: Colors.green)),
-                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
-                TextSpan(
+                    text: AppLocalizations.of(context).switchSC,
+                    style: const TextStyle(color: Colors.green)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
                     text: '\n   break;',
                     style: TextStyle(color: Colors.orange)),
-                TextSpan(
+                const TextSpan(
                     text: '\n   default:',
                     style: TextStyle(color: Colors.orange)),
-                TextSpan(
+                const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: '\'Venda indisponível para seu estado.\'',
-                    style: TextStyle(color: Colors.green)),
-                TextSpan(text: ');', style: TextStyle(color: Colors.white)),
-                TextSpan(text: '\n  }', style: TextStyle(color: Colors.white)),
+                    text: AppLocalizations.of(context).switchDefault,
+                    style: const TextStyle(color: Colors.green)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '\n  }', style: TextStyle(color: Colors.white)),
               ]),
         ),
       ),
       const SizedBox(height: 16),
-      const Text(
-          'Por exemplo esse exemplo acima, o Switch está testando qual o ESTADO está sendo informado. '
-          'Caso seja algum dos exemplos ele irá printar exatamente a aliquota. '
-          'Mas caso o estado desconhecido, ele irá entrar na opção DEFAULT e irá exibir a mensagem que a venda está indisponível.',
-          style: TextStyle(
+      Text(AppLocalizations.of(context).switchExample,
+          style: const TextStyle(
             fontFamily: 'CaviarDreams',
           )),
     ]);

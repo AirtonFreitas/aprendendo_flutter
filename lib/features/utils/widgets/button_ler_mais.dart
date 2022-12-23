@@ -1,10 +1,6 @@
 import 'package:aprendendo_flutter/configs/utils/colors_utils.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../home/home_page_store.dart';
-
-final _homeStore = HomePageStore();
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WidgetContinuarLendo extends StatelessWidget {
   const WidgetContinuarLendo({Key? key}) : super(key: key);
@@ -16,12 +12,15 @@ class WidgetContinuarLendo extends StatelessWidget {
       color: ColorsUtil.grayC,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Text('Continuar lendo...',
-              style: TextStyle(
+        children: [
+          Text(AppLocalizations.of(context).reading,
+              style: const TextStyle(
                   fontFamily: 'CaviarDreams', fontWeight: FontWeight.bold)),
-          SizedBox(width: 16),
-          Icon(Icons.arrow_circle_down_sharp,size: 42,)
+          const SizedBox(width: 16),
+          const Icon(
+            Icons.arrow_circle_down_sharp,
+            size: 42,
+          )
         ],
       ),
     );

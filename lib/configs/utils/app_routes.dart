@@ -40,7 +40,7 @@ class RouteGenerator {
           preferredSize: Size.fromHeight(65),
           child: Text('ERROR'),
         ),
-        body: Text('Página não encontrada'),
+        body: Text('Page not Found'),
       );
     });
   }

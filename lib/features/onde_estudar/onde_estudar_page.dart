@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../configs/utils/colors_utils.dart';
 import '../utils/widgets/app_bar.dart';
 import '../utils/widgets/drawer_app.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OndeEstudarPage extends StatefulWidget {
   const OndeEstudarPage({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _OndeEstudarPageState extends State<OndeEstudarPage> {
           child: AppBar(
             elevation: 0,
             backgroundColor: ColorsUtil.blue,
-            title: const AppBarWidget(title: 'Onde aprender mais?'),
+            title: AppBarWidget(title: AppLocalizations.of(context).learn),
             leading: Builder(
               builder: (BuildContext context) {
                 return IconButton(
@@ -47,9 +48,9 @@ class _OndeEstudarPageState extends State<OndeEstudarPage> {
 
   Widget _buildBody() {
     return Column(children: [
-      const Text(
-        'Você deve estar se perguntando, como posso aprender mais?',
-        style: TextStyle(fontFamily: 'Frederic', fontSize: 18),
+      Text(
+        AppLocalizations.of(context).learMore,
+        style: const TextStyle(fontFamily: 'Frederic', fontSize: 18),
       ),
       const Text(
         'Youtube',
@@ -60,9 +61,9 @@ class _OndeEstudarPageState extends State<OndeEstudarPage> {
             fontWeight: FontWeight.bold),
       ),
       const SizedBox(height: 16),
-      const Text(
-        'Existem muitos canais do Youtube que vão ajudar muito você que está começando.',
-        style: TextStyle(
+      Text(
+        AppLocalizations.of(context).channelYoutube,
+        style: const TextStyle(
           color: ColorsUtil.black,
           fontFamily: 'CaviarDreams',
         ),
@@ -131,37 +132,28 @@ class _OndeEstudarPageState extends State<OndeEstudarPage> {
       const SizedBox(height: 8),
       const Divider(),
       const SizedBox(height: 8),
-      const Text(
-        'Meus apps de ensino',
-        style: TextStyle(
-            color: ColorsUtil.black,
-            fontFamily: 'CaviarDreams',
-            fontSize: 18,
-            fontWeight: FontWeight.bold),
-      ),
+      Text(AppLocalizations.of(context).myApps,
+          style: const TextStyle(
+              color: ColorsUtil.black,
+              fontFamily: 'CaviarDreams',
+              fontSize: 18,
+              fontWeight: FontWeight.bold)),
       const SizedBox(height: 16),
       Row(
         children: [
           GestureDetector(
             onTap: () => _goLinks(
                 'https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendosql'),
-            child: const Text(
-              'Aprendendo SQL',
-              style: TextStyle(
-                  fontFamily: 'Frederic', fontSize: 18, color: Colors.blue),
-            ),
+            child: Text(AppLocalizations.of(context).learnSqlTitle,
+                style: const TextStyle(
+                    fontFamily: 'Frederic', fontSize: 18, color: Colors.blue)),
           ),
           const SizedBox(width: 8),
-          Image.asset(
-            'assets/image/aprendendo_sql.png',
-            width: 60,
-          ),
+          Image.asset('assets/image/aprendendo_sql.png', width: 60),
         ],
       ),
-      const Text(
-        'Me chame no linkedIn para conversar sobre tecnologia',
-        style: TextStyle(fontFamily: 'CaviarDreams'),
-      ),
+      Text(AppLocalizations.of(context).callMe,
+          style: const TextStyle(fontFamily: 'CaviarDreams')),
       const SizedBox(height: 8),
       Row(
         children: [
@@ -184,9 +176,9 @@ class _OndeEstudarPageState extends State<OndeEstudarPage> {
       const SizedBox(height: 8),
       const Divider(),
       const SizedBox(height: 8),
-      const Text(
-        'Sites oficiais do Flutter e Dart',
-        style: TextStyle(
+      Text(
+        AppLocalizations.of(context).officialChannels,
+        style: const TextStyle(
             color: ColorsUtil.black,
             fontFamily: 'CaviarDreams',
             fontSize: 18,
@@ -245,16 +237,15 @@ class _OndeEstudarPageState extends State<OndeEstudarPage> {
         ],
       ),
       const SizedBox(height: 8),
-
     ]);
   }
 
   Widget _goRate() {
     return Column(
       children: [
-        const Text(
-          'O que você achou do app?',
-          style: TextStyle(
+        Text(
+          AppLocalizations.of(context).like,
+          style: const TextStyle(
               color: ColorsUtil.black,
               fontFamily: 'CaviarDreams',
               fontSize: 18,
@@ -266,8 +257,8 @@ class _OndeEstudarPageState extends State<OndeEstudarPage> {
           color: ColorsUtil.grayC,
           child: Column(
             children: [
-              const Text('Avalie o app',
-                  style: TextStyle(
+              Text(AppLocalizations.of(context).rateMe,
+                  style: const TextStyle(
                       fontFamily: 'CaviarDreams',
                       fontSize: 18,
                       fontWeight: FontWeight.bold)),
