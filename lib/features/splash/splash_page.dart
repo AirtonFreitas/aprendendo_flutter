@@ -23,7 +23,7 @@ class _SplashPageState extends State<SplashPage> {
           Lottie.asset('assets/animations/flutter_logo.json',
               width: MediaQuery.of(context).size.width * 0.7, fit: BoxFit.fill),
           Text(
-            AppLocalizations.of(context)!.titleApp,
+            AppLocalizations.of(context).titleApp,
             style: const TextStyle(fontFamily: 'Frederic', fontSize: 18),
           )
         ]),

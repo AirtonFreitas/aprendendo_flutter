@@ -20,7 +20,7 @@ class DrawerApp extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.titleApp,
+                    AppLocalizations.of(context).titleApp,
                     style: const TextStyle(fontFamily: 'Frederic'),
                   ),
                   const SizedBox(
@@ -32,7 +32,7 @@ class DrawerApp extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.code),
             title: Text(
-              AppLocalizations.of(context)!.whatFlutter,
+              AppLocalizations.of(context).whatFlutter,
               style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
@@ -44,7 +44,7 @@ class DrawerApp extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.settings_ethernet),
             title: Text(
-              AppLocalizations.of(context)!.whatDart,
+              AppLocalizations.of(context).whatDart,
               style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
@@ -56,7 +56,7 @@ class DrawerApp extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.widgets_outlined),
             title: Text(
-              AppLocalizations.of(context)!.whatWidgets,
+              AppLocalizations.of(context).whatWidgets,
               style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
@@ -68,7 +68,7 @@ class DrawerApp extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.remove_red_eye_outlined),
             title: Text(
-              AppLocalizations.of(context)!.whatState,
+              AppLocalizations.of(context).whatState,
               style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
@@ -87,7 +87,7 @@ class DrawerApp extends StatelessWidget {
               ],
             ),
             title: Text(
-              AppLocalizations.of(context)!.whatMultiplatform,
+              AppLocalizations.of(context).whatMultiplatform,
               style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
@@ -99,7 +99,7 @@ class DrawerApp extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.menu_book),
             title: Text(
-              AppLocalizations.of(context)!.learn,
+              AppLocalizations.of(context).learn,
               style: const TextStyle(fontFamily: 'Frederic'),
             ),
             onTap: () {
@@ -112,7 +112,7 @@ class DrawerApp extends StatelessWidget {
             children: [
               const SizedBox(height: 16),
               Text(
-                AppLocalizations.of(context)!.learnApps,
+                AppLocalizations.of(context).learnApps,
                 style: const TextStyle(fontFamily: 'Frederic'),
               ),
               const SizedBox(
@@ -137,7 +137,7 @@ class DrawerApp extends StatelessWidget {
                       width: 8,
                     ),
                     Text(
-                      AppLocalizations.of(context)!.learnSqlTitle,
+                      AppLocalizations.of(context).learnSqlTitle,
                       style: const TextStyle(fontFamily: 'Frederic'),
                     ),
                   ],

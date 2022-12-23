@@ -7,6 +7,7 @@ import '../home/home_page_store.dart';
 import '../utils/widgets/app_bar.dart';
 import '../utils/widgets/button_ler_mais.dart';
 import '../utils/widgets/drawer_app.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 final _homeStore = HomePageStore();
 
@@ -37,7 +38,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
           child: AppBar(
             elevation: 0,
             backgroundColor: ColorsUtil.blue,
-            title: const AppBarWidget(title: 'Widgets'),
+            title:
+                AppBarWidget(title: AppLocalizations.of(context).nameWidgets),
             leading: Builder(
               builder: (BuildContext context) {
                 return IconButton(
@@ -65,12 +67,12 @@ class _WidgetsPageState extends State<WidgetsPage> {
       children: [
         _buildIntroducao(),
         Row(
-          children: const [
-            Icon(Icons.widgets_outlined),
-            SizedBox(width: 8),
+          children: [
+            const Icon(Icons.widgets_outlined),
+            const SizedBox(width: 8),
             Text(
-              'Widgets de Layout',
-              style: TextStyle(fontFamily: 'Frederic', fontSize: 20),
+              AppLocalizations.of(context).widgetsLayoutTitle,
+              style: const TextStyle(fontFamily: 'Frederic', fontSize: 20),
               textAlign: TextAlign.start,
             ),
           ],
@@ -90,16 +92,16 @@ class _WidgetsPageState extends State<WidgetsPage> {
 
   Widget _buildIntroducao() {
     return Column(children: [
-      const Text(
-        'O que são os Widgets?',
-        style: TextStyle(fontFamily: 'Frederic', fontSize: 18),
+      Text(
+        AppLocalizations.of(context).whatWidgets,
+        style: const TextStyle(fontFamily: 'Frederic', fontSize: 18),
       ),
       Row(
         children: [
-          const Flexible(
+          Flexible(
             child: Text(
-              'Os componentes de telas do flutter são feitos com base em um conjunto de Widgets. \nUm widget é um componente visual na interface do dispositivo. ',
-              style: TextStyle(
+              AppLocalizations.of(context).widgetsIntroduction,
+              style: const TextStyle(
                 color: ColorsUtil.black,
                 fontFamily: 'CaviarDreams',
               ),
@@ -112,35 +114,34 @@ class _WidgetsPageState extends State<WidgetsPage> {
           ),
         ],
       ),
-      const Text('Os widgets são divididos em duas categorias',
-          style: TextStyle(fontFamily: 'Frederic', fontSize: 16)),
+      Text(AppLocalizations.of(context).widgetsCategoryTitle,
+          style: const TextStyle(fontFamily: 'Frederic', fontSize: 16)),
       const SizedBox(height: 16),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: const [
-          Text('Layout',
-              style: TextStyle(fontFamily: 'Frederic', fontSize: 24)),
-          Text('Interface',
-              style: TextStyle(fontFamily: 'Frederic', fontSize: 24))
+        children: [
+          Text(AppLocalizations.of(context).widgetsLayout,
+              style: const TextStyle(fontFamily: 'Frederic', fontSize: 24)),
+          Text(AppLocalizations.of(context).widgetsInterface,
+              style: const TextStyle(fontFamily: 'Frederic', fontSize: 24))
         ],
       ),
       const SizedBox(height: 8),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: const [
+        children: [
           Flexible(
-            child: Text(
-                'Widgets de Layout são os widgets que organizam a tela. E recebem os widgets de interface.',
-                style: TextStyle(
+            child: Text(AppLocalizations.of(context).widgetsLayoutDescription,
+                style: const TextStyle(
                   fontFamily: 'CaviarDreams',
                 )),
           ),
           Flexible(
-            child: Text(
-                'Widgets de interface são os widgets que irão ser exibidos na interface do usuário.',
-                style: TextStyle(
-                  fontFamily: 'CaviarDreams',
-                )),
+            child:
+                Text(AppLocalizations.of(context).widgetsInterfaceDescription,
+                    style: const TextStyle(
+                      fontFamily: 'CaviarDreams',
+                    )),
           ),
         ],
       ),
@@ -168,20 +169,19 @@ class _WidgetsPageState extends State<WidgetsPage> {
       const Divider(),
       const SizedBox(height: 16),
       Row(
-        children: const [
-          Icon(Icons.widgets_outlined),
-          SizedBox(
+        children: [
+          const Icon(Icons.widgets_outlined),
+          const SizedBox(
             width: 8,
           ),
           Text(
-            'Widgets de Interface',
-            style: TextStyle(fontFamily: 'Frederic', fontSize: 20),
+            AppLocalizations.of(context).widgetsInterfacetTitle,
+            style: const TextStyle(fontFamily: 'Frederic', fontSize: 20),
             textAlign: TextAlign.start,
           ),
         ],
       ),
       const SizedBox(height: 16),
-
       _buildText(),
       const SizedBox(height: 16),
       const Divider(),
@@ -197,10 +197,9 @@ class _WidgetsPageState extends State<WidgetsPage> {
       _buildButton(),
       const SizedBox(height: 32),
       const Divider(),
-      const Text(
-        'Agora já sabemos como funcionam os widgets e alguns dos exemplos mais comuns.'
-        '\nExistem vários outros widgets que podem ser utilizados e cada um possui suas peculiaridades. A recomendação é sempre buscar aprender mais e em fontes confiáveis.',
-        style: TextStyle(fontFamily: 'CaviarDreams'),
+      Text(
+        AppLocalizations.of(context).widgetsDescription,
+        style: const TextStyle(fontFamily: 'CaviarDreams'),
         textAlign: TextAlign.start,
       ),
       const SizedBox(height: 16),
@@ -229,10 +228,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
         const SizedBox(
           height: 16,
         ),
-        const Text(
-            'O Scaffold é uma classe em flutter que fornece muitos widgets de interface como Drawer, BottonNavigationBar, FloatingActionButton, AppBar, Body entre outros. '
-            'O Scaffold irá expandir e ocupar toda a tela do dispositivo, ocupando todo o espaço disponível.',
-            style: TextStyle(
+        Text(AppLocalizations.of(context).widgetsScaffoldDescription,
+            style: const TextStyle(
               fontFamily: 'CaviarDreams',
             )),
         Row(
@@ -256,11 +253,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
             )
           ],
         ),
-        const Text(
-            'No código exibido acima, temos somente a declaração de algumas propriedades do Scaffold, mas não temos o widgets de interface que será exibido. '
-            'Para que seja exibido os componentes de interface(appBar, drawer, body), precisamos declarar cada widget.\n'
-            'Para criar uma tela semelhante a esta, o código seria este:',
-            style: TextStyle(
+        Text(AppLocalizations.of(context).widgetsScaffoldDescriptionTwo,
+            style: const TextStyle(
               fontFamily: 'CaviarDreams',
             )),
         const SizedBox(
@@ -283,9 +277,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
           '\n);',
         ),
         const SizedBox(height: 16),
-        const Text(
-            'Então o nosso Scaffold irá receber alguns widgets de interface, que serão exibidos, cada um em seu lugar.',
-            style: TextStyle(
+        Text(AppLocalizations.of(context).widgetScaffoldReceived,
+            style: const TextStyle(
               fontFamily: 'CaviarDreams',
             )),
       ],
@@ -312,12 +305,9 @@ class _WidgetsPageState extends State<WidgetsPage> {
         ),
         Row(
           children: [
-            const Expanded(
-              child: Text(
-                  'Um container é um widget que possui propriedades para dimensionamento, arredondamento, cores e espaçamento. '
-                  'Basicamente um container é uma \'caixa\' para armazenar conteúdo. '
-                  'Ele recebe outros widgets a partir da propriedade \'child: \'.',
-                  style: TextStyle(
+            Expanded(
+              child: Text(AppLocalizations.of(context).widgetContainerIntro,
+                  style: const TextStyle(
                     fontFamily: 'CaviarDreams',
                   )),
             ),
@@ -335,24 +325,22 @@ class _WidgetsPageState extends State<WidgetsPage> {
               width: 70,
               height: 70,
               color: Colors.green,
-              child: const Text('texto que será exibido'),
+              child: Text(AppLocalizations.of(context).widgetContentContainer),
             ),
-            const Text(
-              style: TextStyle(fontFamily: 'Hack', fontSize: 12),
+            Text(
+              style: const TextStyle(fontFamily: 'Hack', fontSize: 12),
               'Container('
               '\n width: 70,'
               '\n height: 70,'
               '\n color: Colors.green,'
               '\n child: '
-              '\n   Text(\'texto que será exibido\'),'
+              '\n   Text(${AppLocalizations.of(context).widgetContentContainer}),'
               '\n);',
             ),
           ],
         ),
-        const Text(
-            'Neste exemplo temos um widget com várias propriedades. '
-            'Altura 70, Largura 70, Cor de fundo. E temos dentro deste widget o texto sendo exibido.',
-            style: TextStyle(
+        Text(AppLocalizations.of(context).widgetExample,
+            style: const TextStyle(
               fontFamily: 'CaviarDreams',
             )),
       ],
@@ -365,8 +353,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Column e Row',
-                style: TextStyle(
+            Text('Column${AppLocalizations.of(context).forAnd}Row',
+                style: const TextStyle(
                   fontFamily: 'Frederic',
                   fontSize: 18,
                 )),
@@ -377,10 +365,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
             ),
           ],
         ),
-        const Text(
-            'Outros widgets muito usados para construção de layouts são as Columns e Rows (colunas e linhas). '
-            'Estes widgets em especial, são usados para posicionar os widgets de interface.',
-            style: TextStyle(
+        Text(AppLocalizations.of(context).widgetColumns,
+            style: const TextStyle(
               fontFamily: 'CaviarDreams',
             )),
         Row(
@@ -389,12 +375,9 @@ class _WidgetsPageState extends State<WidgetsPage> {
               'assets/image/row_column.png',
               width: 200,
             ),
-            const Expanded(
-              child: Text(
-                  'As Columns fazem o empilhamento vertical dos widgets, enquanto as Rows fazem o enfileiramento horizontal. '
-                  '\nTemos duas propriedades muito importantes para esses widgets que são \'mainAxisAlignment\' e \'crossAxisAlignment\'.'
-                  '\nEssas duas propriedades são responsáveis por organizar todos os componentes dentro do widget.',
-                  style: TextStyle(
+            Expanded(
+              child: Text(AppLocalizations.of(context).widgetColumnsDescription,
+                  style: const TextStyle(
                     fontFamily: 'CaviarDreams',
                   )),
             ),
@@ -405,14 +388,14 @@ class _WidgetsPageState extends State<WidgetsPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(width: 32),
-            const Expanded(
+            Expanded(
                 child: Text(
-              style: TextStyle(fontFamily: 'Hack', fontSize: 12),
+              style: const TextStyle(fontFamily: 'Hack', fontSize: 12),
               'Column('
               '\n children: ['
-              '\n   Text(\'primeiro\'),'
-              '\n   Text(\'segundo\'),'
-              '\n   Text(\'terceiro\'),'
+              '\n   Text(\'${AppLocalizations.of(context).fisrt}\'),'
+              '\n   Text(\'${AppLocalizations.of(context).second}\'),'
+              '\n   Text(\'${AppLocalizations.of(context).third}\'),'
               '\n ],'
               '\n),',
             )),
@@ -420,10 +403,10 @@ class _WidgetsPageState extends State<WidgetsPage> {
               padding: const EdgeInsets.all(8),
               color: Colors.green,
               child: Column(
-                children: const [
-                  Text('primeiro'),
-                  Text('segundo'),
-                  Text('terceiro'),
+                children: [
+                  Text(AppLocalizations.of(context).fisrt),
+                  Text(AppLocalizations.of(context).second),
+                  Text(AppLocalizations.of(context).third),
                 ],
               ),
             ),
@@ -435,14 +418,14 @@ class _WidgetsPageState extends State<WidgetsPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(width: 16),
-            const Expanded(
+            Expanded(
                 child: Text(
-              style: TextStyle(fontFamily: 'Hack', fontSize: 12),
+              style: const TextStyle(fontFamily: 'Hack', fontSize: 12),
               'Row('
               '\n children: ['
-              '\n   Text(\'primeiro\'),'
-              '\n   Text(\'segundo\'),'
-              '\n   Text(\'terceiro\'),'
+              '\n   Text(\'${AppLocalizations.of(context).fisrt}\'),'
+              '\n   Text(\'${AppLocalizations.of(context).second}\'),'
+              '\n   Text(\'${AppLocalizations.of(context).third}\'),'
               '\n ],'
               '\n),',
             )),
@@ -450,10 +433,10 @@ class _WidgetsPageState extends State<WidgetsPage> {
               padding: const EdgeInsets.all(8),
               color: Colors.green,
               child: Row(
-                children: const [
-                  Text('primeiro '),
-                  Text('segundo '),
-                  Text('terceiro '),
+                children: [
+                  Text(AppLocalizations.of(context).fisrt),
+                  Text(AppLocalizations.of(context).second),
+                  Text(AppLocalizations.of(context).third),
                 ],
               ),
             ),
@@ -471,8 +454,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Imagens',
-                style: TextStyle(
+            Text(AppLocalizations.of(context).widgetImagesTitle,
+                style: const TextStyle(
                   fontFamily: 'Frederic',
                   fontSize: 18,
                 )),
@@ -483,23 +466,20 @@ class _WidgetsPageState extends State<WidgetsPage> {
             ),
           ],
         ),
-        const Text(
-            'Temos a opção de exibir uma imagem no app flutter diretamente da internet, ou salva dentro de uma pasta local. '
-            'Para exibir uma imagem na tela, usamos esse widget \'Image()\'.',
-            style: TextStyle(
+        Text(AppLocalizations.of(context).widgetImagesDescription,
+            style: const TextStyle(
               fontFamily: 'CaviarDreams',
             )),
         const SizedBox(height: 16),
-        const Text(
-            style: TextStyle(
+        Text(
+            style: const TextStyle(
               fontFamily: 'Hack',
             ),
-            'Image.network(\'url da imagem\'),'
-            '\nImage.asset(\'caminho local da imagem\')'),
+            'Image.network(\'${AppLocalizations.of(context).widgetImageUrl}\'),'
+            '\nImage.asset(\'${AppLocalizations.of(context).widgetImageLocal}\')'),
         const SizedBox(height: 16),
-        const Text(
-            'Como exemplo, vamos pegar uma imagem de um outro aplicativo e exibir aqui em nossa tela.',
-            style: TextStyle(
+        Text(AppLocalizations.of(context).widgetImageExample,
+            style: const TextStyle(
               fontFamily: 'CaviarDreams',
             )),
         const SizedBox(height: 16),
@@ -529,8 +509,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Textos',
-                style: TextStyle(
+            Text(AppLocalizations.of(context).widgetTextTitle,
+                style: const TextStyle(
                   fontFamily: 'Frederic',
                   fontSize: 18,
                 )),
@@ -541,24 +521,23 @@ class _WidgetsPageState extends State<WidgetsPage> {
             ),
           ],
         ),
-        const Text(
-            'Para exibir um texto na tela, podemos usar esse widget \'Text()\'.',
-            style: TextStyle(
+        Text(AppLocalizations.of(context).widgetTextDescription,
+            style: const TextStyle(
               fontFamily: 'CaviarDreams',
             )),
         const SizedBox(height: 16),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Text(\'Teste de um Text\'),',
-                style: TextStyle(
+            Text('Text(\'${AppLocalizations.of(context).widgetTest}\'),',
+                style: const TextStyle(
                   fontFamily: 'Hack',
                 )),
             const SizedBox(width: 20),
             Container(
               padding: const EdgeInsets.all(2),
               color: Colors.green,
-              child: const Text('Teste de um Text'),
+              child: Text(AppLocalizations.of(context).widgetTest),
             )
           ],
         )
@@ -572,8 +551,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Icones',
-                style: TextStyle(
+            Text(AppLocalizations.of(context).widgetIconsTitle,
+                style: const TextStyle(
                   fontFamily: 'Frederic',
                   fontSize: 18,
                 )),
@@ -584,10 +563,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
             ),
           ],
         ),
-        const Text(
-            'O flutter possui vários ícones que podemos usar para criar nossos layouts. '
-            'Para isso podemos usar o widget Icon().',
-            style: TextStyle(
+        Text(AppLocalizations.of(context).widgetIconsDescription,
+            style: const TextStyle(
               fontFamily: 'CaviarDreams',
             )),
         Column(
@@ -644,8 +621,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Botões',
-                style: TextStyle(
+            Text(AppLocalizations.of(context).widgetButtonsTitle,
+                style: const TextStyle(
                   fontFamily: 'Frederic',
                   fontSize: 18,
                 )),
@@ -656,26 +633,26 @@ class _WidgetsPageState extends State<WidgetsPage> {
             ),
           ],
         ),
-        const Text(
-            'Temos vários widgets que podem fazer a função de \'captura de toque\', ou seja, botões.'
-            'Um exemplo é o TextButton().',
-            style: TextStyle(
+        Text(AppLocalizations.of(context).widgetButtonsDescription,
+            style: const TextStyle(
               fontFamily: 'CaviarDreams',
             )),
         const SizedBox(height: 16),
         Row(
           children: [
             const SizedBox(width: 20),
-            const Expanded(
+            Expanded(
                 child: Text(
                     'TextButton('
                     '\n onPressed: (){FUNÇÃO}, '
-                    '\n child: Text(\'Enviar\')'
+                    '\n child: Text(\'${AppLocalizations.of(context).widgetButtonSend}\')'
                     '\n)',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'Hack',
                     ))),
-            TextButton(onPressed: () {}, child: const Text('Enviar')),
+            TextButton(
+                onPressed: () {},
+                child: Text(AppLocalizations.of(context).widgetButtonSend)),
             const SizedBox(width: 20),
           ],
         ),

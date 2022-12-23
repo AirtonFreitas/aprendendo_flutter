@@ -37,7 +37,8 @@ class _DartPageState extends State<DartPage> {
             child: AppBar(
               elevation: 0,
               backgroundColor: ColorsUtil.blue,
-              title: AppBarWidget(title: AppLocalizations.of(context)!.titleDart),
+              title:
+                  AppBarWidget(title: AppLocalizations.of(context).titleDart),
               leading: Builder(
                 builder: (BuildContext context) {
                   return IconButton(
@@ -71,7 +72,7 @@ class _DartPageState extends State<DartPage> {
             const Icon(Icons.sticky_note_2_outlined),
             const SizedBox(width: 8),
             Text(
-              AppLocalizations.of(context)!.syntaxTitle,
+              AppLocalizations.of(context).syntaxTitle,
               style: const TextStyle(fontFamily: 'Frederic', fontSize: 20),
               textAlign: TextAlign.start,
             ),
@@ -109,7 +110,6 @@ class _DartPageState extends State<DartPage> {
                   _buildSwitchCase(),
                   const SizedBox(height: 16),
                   getBanner(AdmobBannerSize.BANNER),
-
                 ],
               )
             : const SizedBox.shrink(),
@@ -121,12 +121,12 @@ class _DartPageState extends State<DartPage> {
     return Column(
       children: [
         Text(
-          AppLocalizations.of(context)!.nameDart,
+          AppLocalizations.of(context).nameDart,
           style: const TextStyle(fontFamily: 'Frederic', fontSize: 18),
         ),
         const SizedBox(height: 16),
         Text(
-          AppLocalizations.of(context)!.introduction,
+          AppLocalizations.of(context).introduction,
           style: const TextStyle(
             fontFamily: 'CaviarDreams',
           ),
@@ -135,7 +135,7 @@ class _DartPageState extends State<DartPage> {
           children: [
             Expanded(
               child: Text(
-                AppLocalizations.of(context)!.dartDescription,
+                AppLocalizations.of(context).dartDescription,
                 style: const TextStyle(
                   fontFamily: 'CaviarDreams',
                 ),
@@ -148,14 +148,14 @@ class _DartPageState extends State<DartPage> {
           ],
         ),
         Text(
-          AppLocalizations.of(context)!.dartEvolution,
+          AppLocalizations.of(context).dartEvolution,
           style: const TextStyle(
             fontFamily: 'CaviarDreams',
           ),
         ),
         const SizedBox(height: 6),
         Text(
-          AppLocalizations.of(context)!.firstSee,
+          AppLocalizations.of(context).firstSee,
           style: const TextStyle(
             fontFamily: 'CaviarDreams',
           ),
@@ -191,7 +191,7 @@ class _DartPageState extends State<DartPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(AppLocalizations.of(context)!.variables,
+            Text(AppLocalizations.of(context).variables,
                 style: const TextStyle(
                   fontFamily: 'Frederic',
                   fontSize: 18,
@@ -204,7 +204,7 @@ class _DartPageState extends State<DartPage> {
           ],
         ),
         Text(
-          AppLocalizations.of(context)!.variablesCreate,
+          AppLocalizations.of(context).variablesCreate,
           style: const TextStyle(
             fontFamily: 'CaviarDreams',
           ),
@@ -416,11 +416,11 @@ class _DartPageState extends State<DartPage> {
         ),
         const SizedBox(height: 16),
         Text(
-          AppLocalizations.of(context)!.variableDynamic,
+          AppLocalizations.of(context).variableDynamic,
           style: const TextStyle(fontFamily: 'CaviarDreams'),
         ),
         Text(
-          AppLocalizations.of(context)!.variableCreateType,
+          AppLocalizations.of(context).variableCreateType,
           style: const TextStyle(fontFamily: 'CaviarDreams'),
         ),
         const SizedBox(height: 16),
@@ -490,7 +490,7 @@ class _DartPageState extends State<DartPage> {
             )),
         const SizedBox(height: 16),
         Text(
-          AppLocalizations.of(context)!.rememberingVariable,
+          AppLocalizations.of(context).rememberingVariable,
           style: const TextStyle(fontFamily: 'CaviarDreams'),
         )
       ],
@@ -504,7 +504,7 @@ class _DartPageState extends State<DartPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(AppLocalizations.of(context)!.variablesConst,
+            Text(AppLocalizations.of(context).variablesConst,
                 style: const TextStyle(
                   fontFamily: 'Frederic',
                   fontSize: 18,
@@ -517,7 +517,7 @@ class _DartPageState extends State<DartPage> {
           ],
         ),
         Text(
-          AppLocalizations.of(context)!.variablesConstCreate,
+          AppLocalizations.of(context).variablesConstCreate,
           style: const TextStyle(fontFamily: 'CaviarDreams'),
         ),
         const SizedBox(height: 8),
@@ -549,7 +549,7 @@ class _DartPageState extends State<DartPage> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(AppLocalizations.of(context)!.ifAndElseTitle,
+          Text(AppLocalizations.of(context).ifAndElseTitle,
               style: const TextStyle(
                 fontFamily: 'Frederic',
                 fontSize: 18,
@@ -562,11 +562,11 @@ class _DartPageState extends State<DartPage> {
         ],
       ),
       Text(
-        AppLocalizations.of(context)!.ifAndElseExample,
+        AppLocalizations.of(context).ifAndElseExample,
         style: const TextStyle(fontFamily: 'CaviarDreams'),
       ),
       Text(
-        AppLocalizations.of(context)!.ifAndElseConditions,
+        AppLocalizations.of(context).ifAndElseConditions,
         style: const TextStyle(fontFamily: 'CaviarDreams'),
       ),
       const SizedBox(height: 16),
@@ -604,7 +604,7 @@ class _DartPageState extends State<DartPage> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(AppLocalizations.of(context)!.forTitle,
+          Text(AppLocalizations.of(context).forTitle,
               style: const TextStyle(
                 fontFamily: 'Frederic',
                 fontSize: 18,
@@ -617,17 +617,17 @@ class _DartPageState extends State<DartPage> {
         ],
       ),
       Text(
-        AppLocalizations.of(context)!.forExample,
+        AppLocalizations.of(context).forExample,
         style: const TextStyle(fontFamily: 'CaviarDreams'),
       ),
       Text(
-        AppLocalizations.of(context)!.forDescription,
+        AppLocalizations.of(context).forDescription,
         style: const TextStyle(fontFamily: 'CaviarDreams'),
       ),
       const SizedBox(height: 16),
       RichText(
         text: TextSpan(
-            text: AppLocalizations.of(context)!.forVariableControl,
+            text: AppLocalizations.of(context).forVariableControl,
             style: const TextStyle(
                 color: Colors.indigoAccent,
                 fontFamily: 'CaviarDreams',
@@ -635,21 +635,23 @@ class _DartPageState extends State<DartPage> {
             children: <TextSpan>[
               const TextSpan(text: ', ', style: TextStyle(color: Colors.black)),
               TextSpan(
-                  text: AppLocalizations.of(context)!.forConditions,
+                  text: AppLocalizations.of(context).forConditions,
                   style: const TextStyle(color: Colors.green)),
-              TextSpan(text: AppLocalizations.of(context)!.forAnd, style: const TextStyle(color: Colors.black)),
               TextSpan(
-                  text: AppLocalizations.of(context)!.forIncrementVariable,
+                  text: AppLocalizations.of(context).forAnd,
+                  style: const TextStyle(color: Colors.black)),
+              TextSpan(
+                  text: AppLocalizations.of(context).forIncrementVariable,
                   style: const TextStyle(color: Colors.amber)),
               TextSpan(
-                  text: AppLocalizations.of(context)!.forDescriptionT,
+                  text: AppLocalizations.of(context).forDescriptionT,
                   style: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.normal)),
               TextSpan(
-                  text: AppLocalizations.of(context)!.forCode,
+                  text: AppLocalizations.of(context).forCode,
                   style: const TextStyle(color: Colors.purpleAccent)),
               TextSpan(
-                  text: AppLocalizations.of(context)!.forRepet,
+                  text: AppLocalizations.of(context).forRepet,
                   style: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.normal)),
             ]),
@@ -690,7 +692,7 @@ class _DartPageState extends State<DartPage> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(AppLocalizations.of(context)!.switchTitle,
+          Text(AppLocalizations.of(context).switchTitle,
               style: const TextStyle(
                 fontFamily: 'Frederic',
                 fontSize: 18,
@@ -702,7 +704,7 @@ class _DartPageState extends State<DartPage> {
           ),
         ],
       ),
-      Text(AppLocalizations.of(context)!.switchDescription,
+      Text(AppLocalizations.of(context).switchDescription,
           style: const TextStyle(
             fontFamily: 'CaviarDreams',
           )),
@@ -715,20 +717,26 @@ class _DartPageState extends State<DartPage> {
               text: 'switch ',
               style: const TextStyle(color: Colors.orange, fontFamily: 'Hack'),
               children: <TextSpan>[
-                const TextSpan(text: '(', style: TextStyle(color: Colors.white)),
-                TextSpan(text: AppLocalizations.of(context)!.switchState, style: const TextStyle(color: Colors.blue)),
-                const TextSpan(text: ') {', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
+                TextSpan(
+                    text: AppLocalizations.of(context).switchState,
+                    style: const TextStyle(color: Colors.blue)),
+                const TextSpan(
+                    text: ') {', style: TextStyle(color: Colors.white)),
                 const TextSpan(
                     text: '\n   case \'MG\':',
                     style: TextStyle(color: Colors.orange)),
                 const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                const TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: AppLocalizations.of(context)!.switchMG,
+                    text: AppLocalizations.of(context).switchMG,
                     style: const TextStyle(color: Colors.green)),
-                const TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
                 const TextSpan(
                     text: '\n   break;',
                     style: TextStyle(color: Colors.orange)),
@@ -738,11 +746,13 @@ class _DartPageState extends State<DartPage> {
                 const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                const TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: AppLocalizations.of(context)!.switchAC,
+                    text: AppLocalizations.of(context).switchAC,
                     style: const TextStyle(color: Colors.green)),
-                const TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
                 const TextSpan(
                     text: '\n   break;',
                     style: TextStyle(color: Colors.orange)),
@@ -752,11 +762,13 @@ class _DartPageState extends State<DartPage> {
                 const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                const TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: AppLocalizations.of(context)!.switchAL,
+                    text: AppLocalizations.of(context).switchAL,
                     style: const TextStyle(color: Colors.green)),
-                const TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
                 const TextSpan(
                     text: '\n   break;',
                     style: TextStyle(color: Colors.orange)),
@@ -766,11 +778,13 @@ class _DartPageState extends State<DartPage> {
                 const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                const TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: AppLocalizations.of(context)!.switchRJ,
+                    text: AppLocalizations.of(context).switchRJ,
                     style: const TextStyle(color: Colors.green)),
-                const TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
                 const TextSpan(
                     text: '\n   break;',
                     style: TextStyle(color: Colors.orange)),
@@ -780,11 +794,13 @@ class _DartPageState extends State<DartPage> {
                 const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                const TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: AppLocalizations.of(context)!.switchSC,
+                    text: AppLocalizations.of(context).switchSC,
                     style: const TextStyle(color: Colors.green)),
-                const TextSpan(text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
                 const TextSpan(
                     text: '\n   break;',
                     style: TextStyle(color: Colors.orange)),
@@ -794,17 +810,20 @@ class _DartPageState extends State<DartPage> {
                 const TextSpan(
                     text: '\n    print',
                     style: TextStyle(color: Colors.cyanAccent)),
-                const TextSpan(text: '(', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '(', style: TextStyle(color: Colors.white)),
                 TextSpan(
-                    text: AppLocalizations.of(context)!.switchDefault,
+                    text: AppLocalizations.of(context).switchDefault,
                     style: const TextStyle(color: Colors.green)),
-                const TextSpan(text: ');', style: TextStyle(color: Colors.white)),
-                const TextSpan(text: '\n  }', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: ');', style: TextStyle(color: Colors.white)),
+                const TextSpan(
+                    text: '\n  }', style: TextStyle(color: Colors.white)),
               ]),
         ),
       ),
       const SizedBox(height: 16),
-      Text(AppLocalizations.of(context)!.switchExample,
+      Text(AppLocalizations.of(context).switchExample,
           style: const TextStyle(
             fontFamily: 'CaviarDreams',
           )),

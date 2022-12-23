@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
           child: AppBar(
             elevation: 0,
             backgroundColor: ColorsUtil.blue,
-            title: AppBarWidget(title: AppLocalizations.of(context)!.titleApp),
+            title: AppBarWidget(title: AppLocalizations.of(context).titleApp),
             leading: Builder(
               builder: (BuildContext context) {
                 return IconButton(
@@ -63,16 +63,16 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         children: [
           Text(
-            AppLocalizations.of(context)!.whatFlutter,
+            AppLocalizations.of(context).whatFlutter,
             style: const TextStyle(fontFamily: 'Frederic', fontSize: 18),
           ),
-          const Text(
-            'O Flutter é um dos principais frameworks para o desenvolvimento de aplicações mobile.',
-            style: TextStyle(fontFamily: 'CaviarDreams', fontSize: 16),
+          Text(
+            AppLocalizations.of(context).flutterDescription,
+            style: const TextStyle(fontFamily: 'CaviarDreams', fontSize: 16),
           ),
-          const Text(
-            'Criado pela Google, com o Flutter conseguimos desenvolver aplicações nativas para Android e iOS a partir de um único código base.',
-            style: TextStyle(fontFamily: 'CaviarDreams', fontSize: 16),
+          Text(
+            AppLocalizations.of(context).flutterDescriptionTwo,
+            style: const TextStyle(fontFamily: 'CaviarDreams', fontSize: 16),
           ),
           const SizedBox(
             height: 8,
@@ -84,14 +84,14 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 16,
           ),
-          const Text(
-            'Qual linguagem o flutter usa?',
+          Text(
+            AppLocalizations.of(context).whatsflutterLanguage,
             textAlign: TextAlign.start,
-            style: TextStyle(fontFamily: 'Frederic', fontSize: 18),
+            style: const TextStyle(fontFamily: 'Frederic', fontSize: 18),
           ),
-          const Text(
-            'O Flutter utiliza uma linguagem também criado pelo próprio Google, chamada Dart.',
-            style: TextStyle(fontFamily: 'CaviarDreams', fontSize: 16),
+          Text(
+            AppLocalizations.of(context).flutterLanguage,
+            style: const TextStyle(fontFamily: 'CaviarDreams', fontSize: 16),
           ),
           const SizedBox(
             height: 16,
@@ -114,18 +114,17 @@ class _HomePageState extends State<HomePage> {
             height: 8,
           ),
           RichText(
-            text: const TextSpan(
-              text: 'Dart',
-              style: TextStyle(
+            text: TextSpan(
+              text: AppLocalizations.of(context).nameDart,
+              style: const TextStyle(
                   color: ColorsUtil.black,
                   fontFamily: 'CaviarDreams',
                   fontSize: 16,
                   fontWeight: FontWeight.bold),
               children: <TextSpan>[
                 TextSpan(
-                  text:
-                      ' é uma linguagem de programação independente de qualquer plataforma. Linguagem de código aberto e orientada a objetos que compreende uma variedade de recursos úteis para um desenvolvedor de software.',
-                  style: TextStyle(
+                  text: AppLocalizations.of(context).dartDescript,
+                  style: const TextStyle(
                       color: ColorsUtil.black,
                       fontFamily: 'CaviarDreams',
                       fontSize: 16,
@@ -135,18 +134,17 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           RichText(
-            text: const TextSpan(
-              text: 'Flutter',
-              style: TextStyle(
+            text: TextSpan(
+              text: AppLocalizations.of(context).nameFlutter,
+              style: const TextStyle(
                   color: ColorsUtil.black,
                   fontFamily: 'CaviarDreams',
                   fontSize: 16,
                   fontWeight: FontWeight.bold),
               children: <TextSpan>[
                 TextSpan(
-                  text:
-                      ' é um kit de ferramentas de interface de usuário portátil completo com ferramentas e widgets. Ele fornece aos desenvolvedores uma plataforma para construir e implementar aplicativos compilados nativamente e visualmente atraentes para várias plataformas com facilidade.',
-                  style: TextStyle(
+                  text: AppLocalizations.of(context).flutterDescript,
+                  style: const TextStyle(
                       color: ColorsUtil.black,
                       fontFamily: 'CaviarDreams',
                       fontSize: 16,
@@ -163,58 +161,60 @@ class _HomePageState extends State<HomePage> {
   Widget _widgetConteudo() {
     return Column(
       children: [
-        const Text(
-          'O que vou aprender nesse app?',
-          style: TextStyle(fontFamily: 'Frederic', fontSize: 18),
+        Text(
+          AppLocalizations.of(context).whatLearn,
+          style: const TextStyle(fontFamily: 'Frederic', fontSize: 18),
         ),
         const SizedBox(
           height: 32,
         ),
         _temas(
-          'O que é o flutter??',
+          AppLocalizations.of(context).whatFlutter,
           'assets/image/flutter.png',
         ),
         const SizedBox(
-          height: 32,
+          height: 16,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             GestureDetector(
               onTap: () => Navigator.pushNamed(context, 'widgets'),
-              child:
-                  _temas('O que são os Widgets?', 'assets/image/widgets.png'),
+              child: _temas(AppLocalizations.of(context).whatWidgets,
+                  'assets/image/widgets.png'),
             ),
             GestureDetector(
               onTap: () => Navigator.pushNamed(context, 'dart'),
-              child: _temas('O que é o dart?', 'assets/image/dart.png'),
+              child: _temas(AppLocalizations.of(context).whatDart,
+                  'assets/image/dart.png'),
             ),
           ],
         ),
         const SizedBox(
-          height: 32,
+          height: 16,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             GestureDetector(
                 onTap: () => Navigator.pushNamed(context, 'gerencia-estado'),
-                child: _temas(
-                    'Gerencia de Estado', 'assets/image/gerencia_estado.png')),
+                child: _temas(AppLocalizations.of(context).whatState,
+                    'assets/image/gerencia_estado.png')),
             GestureDetector(
               onTap: () => Navigator.pushNamed(context, 'multiplataforma'),
-              child: _temas(
-                  'Multiplataforma?', 'assets/image/multiplataforma.png'),
-            ),
-            GestureDetector(
-              onTap: () => Navigator.pushNamed(context, 'onde-estudar'),
-              child: _temas('Onde estudar?', 'assets/image/pesquisa.png'),
+              child: _temas(AppLocalizations.of(context).whatMultiplatform,
+                  'assets/image/multiplataforma.png'),
             ),
           ],
         ),
         const SizedBox(
-          height: 12,
-        )
+          height: 16,
+        ),
+        GestureDetector(
+          onTap: () => Navigator.pushNamed(context, 'onde-estudar'),
+          child: _temas(
+              AppLocalizations.of(context).learn, 'assets/image/pesquisa.png'),
+        ),
       ],
     );
   }
