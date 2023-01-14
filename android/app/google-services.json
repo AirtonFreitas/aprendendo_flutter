@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1050024735473",
+    "project_id": "aprendendo-flutter-e536c",
+    "storage_bucket": "aprendendo-flutter-e536c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050024735473:android:5484c301cf0eda27372f50",
+        "android_client_info": {
+          "package_name": "com.airtonsiq.aprendendoflutter.aprendendo_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050024735473-04tifjhsb68i6lf9nl3kd45cbg43lkir.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.airtonsiq.aprendendoflutter.aprendendo_flutter",
+            "certificate_hash": "00c77ea5dc243b59503c1a97c892638504cc5dee"
+          }
+        },
+        {
+          "client_id": "1050024735473-4079h0bs88hb9e8ipcaoenjvatvgum82.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ2VtnGoxnQSsVEh4XeDXOSy3Mrg2SLnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050024735473-4079h0bs88hb9e8ipcaoenjvatvgum82.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-3721429763641925~3303961437"
+    }
+  ],
+  "configuration_version": "1"
+}
