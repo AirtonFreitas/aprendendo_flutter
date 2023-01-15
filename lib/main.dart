@@ -6,18 +6,30 @@ import 'configs/utils/app_routes.dart';
 import 'configs/utils/colors_utils.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+String rota = 'splash';
+
 Future<void> main() async {
   try {
-    WidgetsFlutterBinding.ensureInitialized();
+    WidgetsFlutterBinding?.ensureInitialized();
     await Firebase.initializeApp();
-
-    // Get any initial links
     final PendingDynamicLinkData? initialLink =
         await FirebaseDynamicLinks.instance.getInitialLink();
 
-    print('aaa');
-    print(initialLink.toString());
+    if (initialLink != null) {
+      final String link = initialLink.link.toString();
+
+      if (link.contains('widgets')) {
+        rota = 'widgets';
+      } else if (link.contains('gerencia-estado')) {
+        rota = 'gerencia-estado';
+      } else if (link.contains('multiplataforma')) {
+        rota = 'multiplataforma';
+      } else if (link.contains('dart')) {
+        rota = 'dart';
+      }
+    }
   } catch (e) {
+    rethrow;
   }
 
   runApp(const MyApp());
@@ -42,7 +54,7 @@ class MyApp extends StatelessWidget {
               .copyWith(headline6: const TextStyle(fontFamily: 'Heavitas')),
           colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green)
               .copyWith(secondary: ColorsUtil.black)),
-      initialRoute: 'splash',
+      initialRoute: rota,
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
