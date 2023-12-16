@@ -1,5 +1,6 @@
 import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:in_app_review/in_app_review.dart';
 
 import '../../configs/utils/colors_utils.dart';
 import '../utils/widgets/app_bar.dart';
@@ -14,6 +15,35 @@ class MultiPlataformaPage extends StatefulWidget {
 }
 
 class _MultiPlataformaPageState extends State<MultiPlataformaPage> {
+
+  ScrollController scrollController = ScrollController();
+
+  @override
+  void initState() {
+    scrollController.addListener(() {
+      if (scrollController.position.pixels ==
+          scrollController.position.maxScrollExtent) {
+        requestReview();
+      }
+    });
+
+    super.initState();
+  }
+
+  requestReview() async {
+    final InAppReview inAppReview = InAppReview.instance;
+
+    if (await inAppReview.isAvailable()) {
+      inAppReview.requestReview();
+    }
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +67,7 @@ class _MultiPlataformaPageState extends State<MultiPlataformaPage> {
               ),
             )),
         drawer: const DrawerApp(),
-        body: SingleChildScrollView(
+        body: SingleChildScrollView(controller: scrollController,
           padding: const EdgeInsets.all(16),
           child: _buildBody(),
         ));

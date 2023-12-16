@@ -37,12 +37,12 @@ dependencies:
   mobx: ^2.0.7+5
   flutter_mobx: ^2.0.2
   admob_flutter: ^3.0.0
-  intl: ^0.17.0-nullsafety.2
-  flutter_localizations:
-    sdk: flutter
+  intl: ^0.18.0
+  flutter_localization: ^0.2.0
   firebase_dynamic_links: ^5.0.11
   firebase_core: ^2.4.1
   firebase_analytics: ^10.1.0
+  in_app_review: ^2.0.8
 
 dev_dependencies:
   flutter_test:

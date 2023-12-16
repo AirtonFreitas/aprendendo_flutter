@@ -2,6 +2,7 @@ import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:in_app_review/in_app_review.dart';
 import '../../configs/utils/colors_utils.dart';
 import '../home/home_page_store.dart';
 import '../utils/widgets/app_bar.dart';
@@ -19,14 +20,36 @@ class DartPage extends StatefulWidget {
 
 class _DartPageState extends State<DartPage> {
   late AdmobInterstitial interstitialAd;
+  ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
+    scrollController.addListener(() {
+      if (scrollController.position.pixels ==
+          scrollController.position.maxScrollExtent) {
+        requestReview();
+      }
+    });
+
     super.initState();
     interstitialAd = AdmobInterstitial(
       adUnitId: 'ca-app-pub-3721429763641925/1395983395',
     );
     interstitialAd.load();
+  }
+
+  requestReview() async {
+    final InAppReview inAppReview = InAppReview.instance;
+
+    if (await inAppReview.isAvailable()) {
+      inAppReview.requestReview();
+    }
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -53,6 +76,7 @@ class _DartPageState extends State<DartPage> {
             )),
         drawer: const DrawerApp(),
         body: SingleChildScrollView(
+          controller: scrollController,
           padding: const EdgeInsets.all(16),
           child: Observer(builder: (BuildContext context) {
             return _buildBody();
