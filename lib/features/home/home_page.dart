@@ -5,6 +5,8 @@ import 'package:aprendendo_flutter/features/utils/widgets/drawer_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../configs/ad_constants.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -251,14 +253,14 @@ class _HomePageState extends State<HomePage> {
 
   AdmobBanner getBannerMid(AdmobBannerSize size) {
     return AdmobBanner(
-      adUnitId: 'ca-app-pub-3721429763641925/5651418014',
+      adUnitId: AdConstants.bannerHomeMid,
       adSize: size,
     );
   }
 
   AdmobBanner getBanner(AdmobBannerSize size) {
     return AdmobBanner(
-      adUnitId: 'ca-app-pub-3721429763641925/5902204614',
+      adUnitId: AdConstants.bannerHome,
       adSize: size,
     );
   }

@@ -2,6 +2,7 @@ import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_review/in_app_review.dart';
 
+import '../../configs/ad_constants.dart';
 import '../../configs/utils/colors_utils.dart';
 import '../utils/widgets/app_bar.dart';
 import '../utils/widgets/drawer_app.dart';
@@ -178,14 +179,14 @@ class _MultiPlataformaPageState extends State<MultiPlataformaPage> {
 
   AdmobBanner getBannerMid(AdmobBannerSize size) {
     return AdmobBanner(
-      adUnitId: 'ca-app-pub-3721429763641925/5624084584',
+      adUnitId: AdConstants.bannerMultplatformMid,
       adSize: size,
     );
   }
 
   AdmobBanner getBanner(AdmobBannerSize size) {
     return AdmobBanner(
-      adUnitId: 'ca-app-pub-3721429763641925/1903744697',
+      adUnitId: AdConstants.bannerMultplatform,
       adSize: size,
     );
   }

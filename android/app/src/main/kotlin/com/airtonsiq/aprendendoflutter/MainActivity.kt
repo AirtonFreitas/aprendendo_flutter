@@ -1,4 +1,4 @@
-package com.airtonsiq.aprendendoflutter.aprendendo_flutter
+package com.airtonsiq.aprendendoflutter
 
 import io.flutter.embedding.android.FlutterActivity
 

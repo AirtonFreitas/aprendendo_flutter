@@ -79,9 +79,9 @@ class DrawerApp extends StatelessWidget {
           const Divider(),
           ListTile(
             //trailing: Icon(Icons.screenshot_outlined),
-            leading: Row(
+            leading: const Row(
               mainAxisSize: MainAxisSize.min,
-              children: const [
+              children: [
                 Icon(Icons.screenshot_outlined),
                 Icon(Icons.screenshot_monitor),
               ],

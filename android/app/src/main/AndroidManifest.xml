@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.airtonsiq.aprendendoflutter.aprendendo_flutter">
+    package="com.airtonsiq.aprendendoflutter">
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
@@ -40,7 +40,7 @@
             android:value="2" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3721429763641925~3303961437" />
+            android:value="ca-app-pub-3721429763641925~2803801891" />
 
     </application>
 </manifest>

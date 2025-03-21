@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:in_app_review/in_app_review.dart';
+import '../../configs/ad_constants.dart';
 import '../../configs/utils/colors_utils.dart';
 import '../home/home_page_store.dart';
 import '../utils/widgets/app_bar.dart';
@@ -33,7 +34,7 @@ class _DartPageState extends State<DartPage> {
 
     super.initState();
     interstitialAd = AdmobInterstitial(
-      adUnitId: 'ca-app-pub-3721429763641925/1395983395',
+        adUnitId: AdConstants.bannerInterstitial
     );
     interstitialAd.load();
   }
@@ -856,14 +857,14 @@ class _DartPageState extends State<DartPage> {
 
   AdmobBanner getBannerMid(AdmobBannerSize size) {
     return AdmobBanner(
-      adUnitId: 'ca-app-pub-3721429763641925/4338336340',
+      adUnitId: AdConstants.bannerDartMid,
       adSize: size,
     );
   }
 
   AdmobBanner getBanner(AdmobBannerSize size) {
     return AdmobBanner(
-      adUnitId: 'ca-app-pub-3721429763641925/8336796261',
+      adUnitId:  AdConstants.bannerDart,
       adSize: size,
     );
   }

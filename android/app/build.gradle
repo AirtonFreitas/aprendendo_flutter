@@ -14,12 +14,12 @@ if (flutterRoot == null) {
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
-}else{flutterVersionCode = '3'}
+}else{flutterVersionCode = '5'}
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
-}else{flutterVersionName = '3.0'}
+}else{flutterVersionName = '1.0.0'}
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
@@ -44,9 +44,9 @@ android {
     }
 
     defaultConfig {
-         applicationId "com.airtonsiq.aprendendoflutter.aprendendo_flutter"
+         applicationId "com.airtonsiq.aprendendoflutter"
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
